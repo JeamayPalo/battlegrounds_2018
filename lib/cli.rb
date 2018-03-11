@@ -1,6 +1,8 @@
+require_relative ''
+
 #CLI controller
 
-class Battlegrounds2018::CLI
+class Battleground_Candidates2018::CLI
 
     def menu
        puts "Battleground States for Midterms 2018"
