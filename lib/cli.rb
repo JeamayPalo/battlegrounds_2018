@@ -1,6 +1,8 @@
+#CLI controller
+
 class Battlegrounds2018::CLI
 
-    def call
+    def menu
        puts "Battleground States for Midterms 2018"
        list_states
        goodbye
@@ -20,8 +22,29 @@ class Battlegrounds2018::CLI
        "
      end
 
-     def list_candidates
-       puts "Please enter the state:"
+     def list_state_candidates
+       puts "Please enter the state number:"
+       input = gets.strip.to_i
+       case input
+       when '1'
+         arizona_candidates
+       when '2'
+         florida_candidates
+       when '3'
+         indiana_candidates
+       when '4'
+         missouri_candidates
+       when '5'
+         montana_candidates
+       when '6'
+         nevada_candidates
+       when '7'
+         northdakota_candidates
+       when '8'
+         ohio_candidates
+       when '9'
+         westviriginia_candidates
+         end
      end
 
      def goodbye

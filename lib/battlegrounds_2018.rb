@@ -1,9 +1,10 @@
-require "battlegrounds_2018/version"
+require 'open-uri'
+require 'pry'
+require 'nokogiri'
+
+require_relative "battlegrounds_2018/version"
+require_relative "battlegrounds_2018/cli"
+require_relative "battlegrounds_2018/battlegrounds_2018"
 
 module Battlegrounds2018
-  # Your code goes here...
-  def greeting
-    puts "Hello World!"
-  end
-
 end
