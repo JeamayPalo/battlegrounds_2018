@@ -1,5 +1,3 @@
-require_relative ''
-
 #CLI controller
 
 class Battleground_Candidates2018::CLI

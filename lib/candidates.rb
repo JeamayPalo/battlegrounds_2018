@@ -81,7 +81,7 @@ module Battleground_Candidates2018
         end
 
         def nevada_candidates
-            puts "Here are the Nevada candidates:
+          puts "Here are the Nevada candidates:
               1.) Republican - Dean  Heller - incumbent
               2.) Republican - Sarah Gazala - candidate
               3.) Republican - Danny Tarkanian - candidate
@@ -93,12 +93,38 @@ module Battleground_Candidates2018
         end
 
         def northdakota_candidates
+          puts "Here are the North Dakota candidates:
+              1.) Democrat - Heidi Heitkamp - incumbent
+              2.) Democrat - Dustin David Peyer - candidate
+              3.) Republican - Kevin Cramer - candidate
+              4.) Republican - Tom Campbell - withdrawn
+              5.) Republican - Gary Emineth - withdrawn
+            "
         end
 
         def ohio_candidates
+          puts "Here are the Ohio candidates:
+              1.) Democrat - Sherrod Brown - incumbent
+              2.) Republican - Melissa Ackison - candidate
+              3.) Republican - Don Elijah Eckhart - candidate
+              4.) Republican - Mike Gibbons - candidate
+              5.) Republican - Dan Kiley - candidate
+              8.) Republican - Jim  Renacci - candidate
+              9.) Republican - Josh Mandel - withdrawn
+            "
         end
 
         def westviriginia_candidates
+          puts "Here are the West Virginia candidates:
+              1.) Democrat - Joe Manchin III - incumbent
+              2.) Democrat - Paula Jean Swearengin - candidate
+              3.) Democrat - Chase Henderson - candidate
+              4.) Republican - Don Blankenship - candidate
+              5.) Republican - Bo Copley - candidate
+              8.) Republican - Evan Jenkins - candidate
+              9.) Republican - Tom Willis - candidate
+              10.) Republican - Scott Ernst - candidate
+            "
         end
 
 end
