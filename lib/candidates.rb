@@ -1,4 +1,5 @@
 require "battlegrounds_2018/version"
+require 'pry'
 
 module Battleground_Candidates2018
   # Your code goes here...
@@ -26,6 +27,7 @@ module Battleground_Candidates2018
           12.) Democrat - Kyrsten Sinema - candidate
           13.) Democrat - Jim Moss - withdrew
         "
+        binding.pry
       end
 
       def florida_candidates
