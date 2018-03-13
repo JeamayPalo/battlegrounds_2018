@@ -1,7 +1,6 @@
-require "battlegrounds_2018/version"
-require 'pry'
+require_relative './battlegrounds_2018'
 
-module Battleground_Candidates2018
+class Candidates
   # Your code goes here...
     attr_accessor :party, :name, :status
 
@@ -12,6 +11,7 @@ module Battleground_Candidates2018
     end
 
     def arizona_candidates
+      binding.pry
         puts "Here are the Arizona candidates:
           1.) Republican - Jeff Flake - incumbent
           2.) Republican - Joe Arpaio - candidate
@@ -27,7 +27,6 @@ module Battleground_Candidates2018
           12.) Democrat - Kyrsten Sinema - candidate
           13.) Democrat - Jim Moss - withdrew
         "
-        binding.pry
       end
 
       def florida_candidates

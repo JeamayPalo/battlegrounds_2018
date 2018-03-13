@@ -1,8 +1,7 @@
-require_relative './lib/battlegrounds_2018/candidates'
-require 'pry'
+require_relative './battlegrounds_2018'
 
 #CLI controller
-class Battleground_Candidates2018::CLI
+class CLI
 
     def menu
        puts "Battleground States for Midterms 2018"
@@ -56,5 +55,3 @@ class Battleground_Candidates2018::CLI
      end
 
 end
-
-Battleground_Candidates2018
