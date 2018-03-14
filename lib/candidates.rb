@@ -2,12 +2,13 @@ require_relative './battlegrounds_2018'
 
 class Candidates
   # Your code goes here...
-    attr_accessor :party, :name, :status
+    attr_accessor :party, :name, :status, :state
 
     def initialize (status = 'candidate')
       @name = name
       @party = party
       @status = status
+      @state = state
     end
 
     def arizona_candidates
