@@ -1,7 +1,9 @@
-require_relative '../battlegrounds_2018'
+#require_relative '../battlegrounds_2018'
+require 'nokogiri'
+require 'open-uri'
+require 'pry'
 
-class States
-
+class State
   attr_accessor :name, :candidates
 
   def initialize(name)
@@ -12,10 +14,15 @@ class States
   @@all = []
 
   def scrape_states
+    doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+    doc.css(".mw-headline").text
+    #doc.css(".grey-text").text
+    binding.pry
   end
 
   def self.list_states
-    # put scraped data from states here 
+    # put scraped data from states here
+    # hard-coded version for  now
     puts "Here are the Battleground States for the Midterm Elections of 2018:
     1.) Arizona
     2.) Florida

@@ -1,6 +1,7 @@
-require_relative './battlegrounds_2018'
+#require_relative './battlegrounds_2018'
+require 'pry'
 
-class Candidates
+class Candidate
   # Your code goes here...
     attr_accessor :party, :name, :status, :state
 
@@ -11,8 +12,7 @@ class Candidates
       @state = state
     end
 
-    def arizona_candidates
-      binding.pry
+    def self.arizona_candidates
         puts "Here are the Arizona candidates:
           1.) Republican - Jeff Flake - incumbent
           2.) Republican - Joe Arpaio - candidate
