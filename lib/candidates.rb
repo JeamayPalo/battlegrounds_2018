@@ -59,7 +59,7 @@ class Candidate
       binding.pry
     end
 
-    def self.northdakota_candidates
+    def northdakota_candidates
       northdakota = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       northdakota.css("#mw-content-text").css("ul")[44].text #Democrats
       northdakota.css("#mw-content-text").css("ul")[45].text #Republican
@@ -68,30 +68,22 @@ class Candidate
     end
 
     def ohio_candidates
-      #puts "Here are the Ohio candidates:
-          #1.) Democrat - Sherrod Brown - incumbent
-          #2.) Republican - Melissa Ackison - candidate
-          #3.) Republican - Don Elijah Eckhart - candidate
-          #4.) Republican - Mike Gibbons - candidate
-          #5.) Republican - Dan Kiley - candidate
-          #8.) Republican - Jim  Renacci - candidate
-          #9.) Republican - Josh Mandel - withdrawn
-        #"
+      ohio = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      ohio.css("#mw-content-text").css("ul")[47].text #Democrats
+      ohio.css("#mw-content-text").css("ul")[48].text #Republican
+      ohio.css("#mw-content-text").css("ul")[49].text #Republicans - Withdrew
+      ohio.css("#mw-content-text").css("ul")[50].text #Not Running
     end
 
-        def westviriginia_candidates
-          puts "Here are the West Virginia candidates:
-              1.) Democrat - Joe Manchin III - incumbent
-              2.) Democrat - Paula Jean Swearengin - candidate
-              3.) Democrat - Chase Henderson - candidate
-              4.) Republican - Don Blankenship - candidate
-              5.) Republican - Bo Copley - candidate
-              8.) Republican - Evan Jenkins - candidate
-              9.) Republican - Tom Willis - candidate
-              10.) Republican - Scott Ernst - candidate
-            "
-        end
+    def self.westvirginia_candidates
+      westvirginia = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      westvirginia.css("#mw-content-text").css("ul")[55].text #Democrats
+      westvirginia.css("#mw-content-text").css("ul")[56].text #Democrats - Withdrew
+      westvirginia.css("#mw-content-text").css("ul")[57].text #Republicans
+      westvirginia.css("#mw-content-text").css("ul")[58].text #Republican - Withdrew
+      binding.pry
+    end
 
 end
 
-Candidate.northdakota_candidates
+Candidate.westvirginia_candidates
