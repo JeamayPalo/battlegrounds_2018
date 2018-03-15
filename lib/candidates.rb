@@ -14,7 +14,7 @@ class Candidate
       @state = state
     end
 
-    def arizona_candidates
+    def self.scrape_arizona
       arizona = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       arizona.css("#mw-content-text").css("ul")[8].text #Incumbent
       arizona.css("#mw-content-text").css("ul")[5].text #Democrats
@@ -23,7 +23,7 @@ class Candidate
       arizona.css("#mw-content-text").css("ul")[9].text #Libertarian
     end
 
-    def florida_candidates
+    def self.scrape_florida
       florida = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       florida.css("#mw-content-text").css("ul")[10].text  #Democrats
       florida.css("#mw-content-text").css("ul")[11].text  #Republicans
@@ -32,7 +32,7 @@ class Candidate
       florida.css("#mw-content-text").css("ul")[14].text  #Independents
     end
 
-    def missouri_candidates
+    def self.scrape_missouri
       missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       missouri.css("#mw-content-text").css("ul")[31].text #Democrats
       missouri.css("#mw-content-text").css("ul")[32].text #Republicans
@@ -41,7 +41,7 @@ class Candidate
       missouri.css("#mw-content-text").css("ul")[35].text #Libertarian
     end
 
-    def montana_candidates
+    def self.scrape_montana
       montana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       montana.css("#mw-content-text").css("ul")[36].text  #Democrats
       montana.css("#mw-content-text").css("ul")[37].text  #Republicans
@@ -51,7 +51,7 @@ class Candidate
       binding.pry
     end
 
-    def nevada_candidates
+    def self.scrape_nevada
       nevada = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       nevada.css("#mw-content-text").css("ul")[41].text #Democrats
       nevada.css("#mw-content-text").css("ul")[42].text #Democrat - withdrew
@@ -59,7 +59,7 @@ class Candidate
       binding.pry
     end
 
-    def northdakota_candidates
+    def self.scrape_northdakota
       northdakota = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       northdakota.css("#mw-content-text").css("ul")[44].text #Democrats
       northdakota.css("#mw-content-text").css("ul")[45].text #Republican
@@ -67,7 +67,7 @@ class Candidate
       binding.pry
     end
 
-    def ohio_candidates
+    def self.scrape_ohio
       ohio = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       ohio.css("#mw-content-text").css("ul")[47].text #Democrats
       ohio.css("#mw-content-text").css("ul")[48].text #Republican
@@ -75,7 +75,7 @@ class Candidate
       ohio.css("#mw-content-text").css("ul")[50].text #Not Running
     end
 
-    def self.westvirginia_candidates
+    def self.scrape_westvirginia
       westvirginia = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       westvirginia.css("#mw-content-text").css("ul")[55].text #Democrats
       westvirginia.css("#mw-content-text").css("ul")[56].text #Democrats - Withdrew
@@ -85,5 +85,3 @@ class Candidate
     end
 
 end
-
-Candidate.westvirginia_candidates

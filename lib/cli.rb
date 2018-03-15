@@ -5,11 +5,10 @@ require_relative './states'
 #CLI controller
 class CLI
 
-    def menu
+    def list_states
        puts "Battleground States for Midterms 2018"
-       State.list_states
+       State.scrape_states
        goodbye
-       binding.pry
     end
 
      def list_state_candidates
@@ -18,23 +17,23 @@ class CLI
        while input != 'exit'
          case input
          when '1'
-           arizona_candidates
+           Candidate.scrape_arizona
          when '2'
-           florida_candidates
+           Candidate.scrape_florida
          when '3'
-           indiana_candidates
+           Candidate.scrape_indiana
          when '4'
-           missouri_candidates
+           Candidate.scrape_missouri
          when '5'
-           montana_candidates
+           Candidate.scrape_montana
          when '6'
-           nevada_candidates
+           Candidate.scrape_nevada
          when '7'
-           northdakota_candidates
+           Candidate.scrape_northdakota
          when '8'
-           ohio_candidates
+           Candidate.scrape_ohio
          when '9'
-           westviriginia_candidates
+           Candidate.scrape_westviriginia
          end
        end
     end

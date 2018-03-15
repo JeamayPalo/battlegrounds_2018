@@ -16,8 +16,6 @@ class State
   def self.scrape_states
     doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
     doc.css("span##{@name}").text
-    #doc.css(".grey-text").text
-    binding.pry
   end
 
   #def self.all
