@@ -51,7 +51,7 @@ class Candidate
       binding.pry
     end
 
-    def self.nevada_candidates
+    def nevada_candidates
       nevada = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       nevada.css("#mw-content-text").css("ul")[41].text #Democrats
       nevada.css("#mw-content-text").css("ul")[42].text #Democrat - withdrew
@@ -59,27 +59,25 @@ class Candidate
       binding.pry
     end
 
-        def northdakota_candidates
-          puts "Here are the North Dakota candidates:
-              1.) Democrat - Heidi Heitkamp - incumbent
-              2.) Democrat - Dustin David Peyer - candidate
-              3.) Republican - Kevin Cramer - candidate
-              4.) Republican - Tom Campbell - withdrawn
-              5.) Republican - Gary Emineth - withdrawn
-            "
-        end
+    def self.northdakota_candidates
+      northdakota = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      northdakota.css("#mw-content-text").css("ul")[44].text #Democrats
+      northdakota.css("#mw-content-text").css("ul")[45].text #Republican
+      northdakota.css("#mw-content-text").css("ul")[46].text #Republicans - Withdrew
+      binding.pry
+    end
 
-        def ohio_candidates
-          puts "Here are the Ohio candidates:
-              1.) Democrat - Sherrod Brown - incumbent
-              2.) Republican - Melissa Ackison - candidate
-              3.) Republican - Don Elijah Eckhart - candidate
-              4.) Republican - Mike Gibbons - candidate
-              5.) Republican - Dan Kiley - candidate
-              8.) Republican - Jim  Renacci - candidate
-              9.) Republican - Josh Mandel - withdrawn
-            "
-        end
+    def ohio_candidates
+      #puts "Here are the Ohio candidates:
+          #1.) Democrat - Sherrod Brown - incumbent
+          #2.) Republican - Melissa Ackison - candidate
+          #3.) Republican - Don Elijah Eckhart - candidate
+          #4.) Republican - Mike Gibbons - candidate
+          #5.) Republican - Dan Kiley - candidate
+          #8.) Republican - Jim  Renacci - candidate
+          #9.) Republican - Josh Mandel - withdrawn
+        #"
+    end
 
         def westviriginia_candidates
           puts "Here are the West Virginia candidates:
@@ -96,4 +94,4 @@ class Candidate
 
 end
 
-Candidate.nevada_candidates
+Candidate.northdakota_candidates
