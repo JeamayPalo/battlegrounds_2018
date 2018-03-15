@@ -23,32 +23,24 @@ class Candidate
       arizona.css("#mw-content-text").css("ul")[9].text #Libertarian
     end
 
-      def self.florida_candidates
-        florida = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-        florida.css("#mw-content-text").css("ul")[10].text  #Democrats
-        florida.css("#mw-content-text").css("ul")[11].text  #Republicans
-        florida.css("#mw-content-text").css("ul")[12].text  #Potential
-        florida.css("#mw-content-text").css("ul")[13].text  #Libertarian
-        florida.css("#mw-content-text").css("ul")[14].text  #Independents
-        binding.pry
-      end
+    def florida_candidates
+      florida = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      florida.css("#mw-content-text").css("ul")[10].text  #Democrats
+      florida.css("#mw-content-text").css("ul")[11].text  #Republicans
+      florida.css("#mw-content-text").css("ul")[12].text  #Potential
+      florida.css("#mw-content-text").css("ul")[13].text  #Libertarian
+      florida.css("#mw-content-text").css("ul")[14].text  #Independents
+    end
 
-        def missouri_candidates
-            puts "Here are the Missouri candidates:
-              1.) Democrat - Claire McCaskill - incumbent
-              2.) Democrat - Angelica Earl - candidate
-              3.) Democrat - Travis Gonzalez - candidate
-              4.) Republican - Josh Hawley - candidate
-              5.) Republican - Bradley Krembs - candidate
-              6.) Republican - Robert Marshner - candidate
-              7.) Republican - Tony Monetti - candidate
-              8.) Republican - Austin Petersen - candidate
-              9.) Republican - Courtland Sykes - candidate
-              10.) Republican - Camille Lombardi-Olive - withdrew
-              11.) Independent - Craig O'Dear - candidate
-              13.) Libertarian - Japheth Campbell - candidate
-            "
-        end
+    def self.missouri_candidates
+      missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      missouri.css("#mw-content-text").css("ul")[31].text #Democrats
+      missouri.css("#mw-content-text").css("ul")[32].text #Republicans
+      missouri.css("#mw-content-text").css("ul")[33].text #Republican - Withdrew
+      missouri.css("#mw-content-text").css("ul")[34].text #Independent
+      missouri.css("#mw-content-text").css("ul")[35].text #Libertarian
+      binding.pry
+    end
 
         def montana_candidates
            "Here are the Montana candidates:
@@ -116,4 +108,4 @@ class Candidate
 
 end
 
-Candidate.florida_candidates
+Candidate.missouri_candidates
