@@ -130,3 +130,5 @@ class Candidate
         end
 
 end
+
+binding.pry

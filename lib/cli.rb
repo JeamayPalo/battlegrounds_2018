@@ -1,29 +1,18 @@
-require_relative './battlegrounds_2018'
+require 'pry'
+require_relative './candidates'
+require_relative './states'
 
 #CLI controller
 class CLI
 
     def menu
        puts "Battleground States for Midterms 2018"
-       list_states
+       State.list_states
        goodbye
+       binding.pry
     end
 
-    def self.list_states
-      puts "Here are the Battleground States for the Midterm Elections of 2018:
-      1.) Arizona
-      2.) Florida
-      3.) Indiana
-      4.) Missouri
-      5.) Montana
-      6.) Nevada
-      7.) North Dakota
-      8.) Ohio
-      9.) West Virginia
-      "
-    end
-
-     def self.list_state_candidates
+     def list_state_candidates
        puts "Please enter the state number (1-9):"
        input = gets.strip.to_i
        while input != 'exit'
