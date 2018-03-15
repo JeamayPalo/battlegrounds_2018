@@ -32,32 +32,24 @@ class Candidate
       florida.css("#mw-content-text").css("ul")[14].text  #Independents
     end
 
-    def self.missouri_candidates
+    def missouri_candidates
       missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       missouri.css("#mw-content-text").css("ul")[31].text #Democrats
       missouri.css("#mw-content-text").css("ul")[32].text #Republicans
       missouri.css("#mw-content-text").css("ul")[33].text #Republican - Withdrew
       missouri.css("#mw-content-text").css("ul")[34].text #Independent
       missouri.css("#mw-content-text").css("ul")[35].text #Libertarian
-      binding.pry
     end
 
-        def montana_candidates
-           "Here are the Montana candidates:
-              1.) Democrat - Jon Tester - incumbent
-              2.) Democrat - Sarah Dean - candidate
-              3.) Democrat - Greg Standberg - candidate
-              4.) Republican - James Dean - candidate
-              5.) Republican - Troy Downing - candidate
-              6.) Republican - Russell C. Fagg - candidate
-              7.) Republican - Albert Olzewski - candidate
-              8.) Republican - Matt Rosendale - candidate
-              9.) Republican - Scott Royo McLean - withdrawn
-              10.) Republican - Ronald Murray - withdrawn
-              11.) Green Party - Thomas Breck - candidate
-              12.) Libertarian - Rick Breckenridge - candidate
-            "
-        end
+    def self.montana_candidates
+      montana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      montana.css("#mw-content-text").css("ul")[36].text  #Democrats
+      montana.css("#mw-content-text").css("ul")[37].text  #Republicans
+      montana.css("#mw-content-text").css("ul")[38].text  #Republicans - Withdrew
+      montana.css("#mw-content-text").css("ul")[39].text  #Green Party
+      montana.css("#mw-content-text").css("ul")[40].text  #Libertarian
+      binding.pry
+    end
 
         def nevada_candidates
           puts "Here are the Nevada candidates:
@@ -108,4 +100,4 @@ class Candidate
 
 end
 
-Candidate.missouri_candidates
+Candidate.montana_candidates
