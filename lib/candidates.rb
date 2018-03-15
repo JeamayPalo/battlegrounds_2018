@@ -41,7 +41,7 @@ class Candidate
       missouri.css("#mw-content-text").css("ul")[35].text #Libertarian
     end
 
-    def self.montana_candidates
+    def montana_candidates
       montana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       montana.css("#mw-content-text").css("ul")[36].text  #Democrats
       montana.css("#mw-content-text").css("ul")[37].text  #Republicans
@@ -51,17 +51,13 @@ class Candidate
       binding.pry
     end
 
-        def nevada_candidates
-          puts "Here are the Nevada candidates:
-              1.) Republican - Dean  Heller - incumbent
-              2.) Republican - Sarah Gazala - candidate
-              3.) Republican - Danny Tarkanian - candidate
-              4.) Democrat - Bobby Mahendra - candidate
-              5.) Democrat - Jacky Rosen - candidate
-              8.) Democrat - Jesse Sbaih - candidate
-              9.) Democrat - Jay Craddock - withdrawn
-            "
-        end
+    def self.nevada_candidates
+      nevada = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      nevada.css("#mw-content-text").css("ul")[41].text #Democrats
+      nevada.css("#mw-content-text").css("ul")[42].text #Democrat - withdrew
+      nevada.css("#mw-content-text").css("ul")[43].text #Republicans
+      binding.pry
+    end
 
         def northdakota_candidates
           puts "Here are the North Dakota candidates:
@@ -100,4 +96,4 @@ class Candidate
 
 end
 
-Candidate.montana_candidates
+Candidate.nevada_candidates
