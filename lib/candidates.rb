@@ -14,34 +14,23 @@ class Candidate
       @state = state
     end
 
-    def self.arizona_candidates
+    def arizona_candidates
       arizona = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      arizona.css("#mw-content-text").css("ul")[8].text
-      arizona.css("#mw-content-text").css("ul")[5].text
-      arizona.css("#mw-content-text").css("ul")[6].text
-      arizona.css("#mw-content-text").css("ul")[7].text
-      arizona.css("#mw-content-text").css("ul")[9].text
-      binding.pry
+      arizona.css("#mw-content-text").css("ul")[8].text #Incumbent
+      arizona.css("#mw-content-text").css("ul")[5].text #Democrats
+      arizona.css("#mw-content-text").css("ul")[6].text #Republicans
+      arizona.css("#mw-content-text").css("ul")[7].text #Independent
+      arizona.css("#mw-content-text").css("ul")[9].text #Libertarian
     end
 
       def self.florida_candidates
         florida = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-        florida.css("#mw-content-text").css("ul")[10].text
-          #puts "Here are the Florida candidates:
-            #1.) Democrat - Bill Nelson - incumbent
-            #2.) Democrat - Tamika Lyles - candidate
-            #3.) Republican - Augustus Sol Invictus - candidate
-            #4.) Republican - Lateresa Jones - candidate
-            #5.) Republican - Howard Knepper- candidate
-            #6.) Republican - Martin Mikhail - candidate
-            #7.) Republican - Joe Smith - candidate
-            #8.) Democrat - Marcia Thorne - candidate
-            #9.) Democrat - Rick Scott - potential
-            #10.) Libertarian - Joe Wendt - candidate
-            #11.) Independent - Joe Allen - candidate
-            #12.) Independent - Gregory Bowles - candidate
-            #13.) Independent - Edward Janowski - candidate
-          #"
+        florida.css("#mw-content-text").css("ul")[10].text  #Democrats
+        florida.css("#mw-content-text").css("ul")[11].text  #Republicans
+        florida.css("#mw-content-text").css("ul")[12].text  #Potential
+        florida.css("#mw-content-text").css("ul")[13].text  #Libertarian
+        florida.css("#mw-content-text").css("ul")[14].text  #Independents
+        binding.pry
       end
 
         def missouri_candidates
@@ -127,4 +116,4 @@ class Candidate
 
 end
 
-Candidate.arizona_candidates
+Candidate.florida_candidates
