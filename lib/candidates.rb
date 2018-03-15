@@ -1,4 +1,6 @@
 #require_relative './battlegrounds_2018'
+require 'nokogiri'
+require 'open-uri'
 require 'pry'
 
 class Candidate
@@ -12,25 +14,16 @@ class Candidate
       @state = state
     end
 
-    def self.arizona_candidates
-        puts "Here are the Arizona candidates:
-          1.) Republican - Jeff Flake - incumbent
-          2.) Republican - Joe Arpaio - candidate
-          3.) Republican - Christian Diegel - candidate
-          4.) Republican - Michelle Griffin - candidate
-          5.) Republican - Martha McSally - candidate
-          6.) Republican - Nicholas Tutora - candidate
-          7.) Republican - Kelli Ward - candidate
-          8.) Democrat - Deedra Abboud - candidate
-          9.) Democrat - Bob Bishop - candidate
-          10.) Democrat - Chris Russell - candidate
-          11.) Democrat - Richard Sherzan - candidate
-          12.) Democrat - Kyrsten Sinema - candidate
-          13.) Democrat - Jim Moss - withdrew
-        "
-      end
+    def arizona_candidates
+      arizona = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      arizona.css("#mw-content-text").css("ul")[5].text
+      arizona.css("#mw-content-text").css("ul")[7].text
+    end
 
-      def florida_candidates
+      def self.florida_candidates
+        florida = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+        #florida.css("#mw-content-text").css("ul")[5].text
+        binding.pry
           puts "Here are the Florida candidates:
             1.) Democrat - Bill Nelson - incumbent
             2.) Democrat - Tamika Lyles - candidate
@@ -46,7 +39,7 @@ class Candidate
             12.) Independent - Gregory Bowles - candidate
             13.) Independent - Edward Janowski - candidate
           "
-        end
+      end
 
         def missouri_candidates
             puts "Here are the Missouri candidates:
@@ -131,4 +124,4 @@ class Candidate
 
 end
 
-binding.pry
+Candidate.florida_candidates
