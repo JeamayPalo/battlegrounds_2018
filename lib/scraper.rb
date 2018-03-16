@@ -25,38 +25,48 @@ class Scraper
 
     def self.scrape_florida
       florida = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      florida.css("#mw-content-text").css("ul")[10].text  #Democrats
-      florida.css("#mw-content-text").css("ul")[11].text  #Republicans
-      florida.css("#mw-content-text").css("ul")[12].text  #Potential
-      florida.css("#mw-content-text").css("ul")[13].text  #Libertarian
-      florida.css("#mw-content-text").css("ul")[14].text  #Independents
+      florida_candidates = {
+        "Democrats" => florida.css("#mw-content-text").css("ul")[10].text,  #Democrats
+        "Republicans" => florida.css("#mw-content-text").css("ul")[11].text,  #Republicans
+        "Potential" => florida.css("#mw-content-text").css("ul")[12].text,  #Potential
+        "Libertarian" => florida.css("#mw-content-text").css("ul")[13].text,  #Libertarian
+        "Independents" => florida.css("#mw-content-text").css("ul")[14].text  #Independents
+      }
+      florida_candidates
     end
 
     def self.scrape_missouri
       missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      missouri.css("#mw-content-text").css("ul")[31].text #Democrats
-      missouri.css("#mw-content-text").css("ul")[32].text #Republicans
-      missouri.css("#mw-content-text").css("ul")[33].text #Republican - Withdrew
-      missouri.css("#mw-content-text").css("ul")[34].text #Independent
-      missouri.css("#mw-content-text").css("ul")[35].text #Libertarian
+      missouri_candidates = {
+        "Democrats" => missouri.css("#mw-content-text").css("ul")[31].text, #Democrats
+        "Republicans" => missouri.css("#mw-content-text").css("ul")[32].text, #Republicans
+        "Republican (withdrew)" => missouri.css("#mw-content-text").css("ul")[33].text, #Republican - Withdrew
+        "Independent" => missouri.css("#mw-content-text").css("ul")[34].text, #Independent
+        "Libertarian" => missouri.css("#mw-content-text").css("ul")[35].text #Libertarian
+      }
+      missouri_candidates
     end
 
     def self.scrape_montana
       montana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      montana.css("#mw-content-text").css("ul")[36].text  #Democrats
-      montana.css("#mw-content-text").css("ul")[37].text  #Republicans
-      montana.css("#mw-content-text").css("ul")[38].text  #Republicans - Withdrew
-      montana.css("#mw-content-text").css("ul")[39].text  #Green Party
-      montana.css("#mw-content-text").css("ul")[40].text  #Libertarian
-      binding.pry
+      montana_candidates = {
+        "Democrats" => montana.css("#mw-content-text").css("ul")[36].text,  #Democrats
+        "Republicans" => montana.css("#mw-content-text").css("ul")[37].text,  #Republicans
+        "Republicans (withdrew)" => montana.css("#mw-content-text").css("ul")[38].text,  #Republicans - Withdrew
+        "Green Party" => montana.css("#mw-content-text").css("ul")[39].text,  #Green Party
+        "Libertarian" => montana.css("#mw-content-text").css("ul")[40].text  #Libertarian
+      }
+      montana_candidates
     end
 
     def self.scrape_nevada
       nevada = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      nevada.css("#mw-content-text").css("ul")[41].text #Democrats
-      nevada.css("#mw-content-text").css("ul")[42].text #Democrat - withdrew
-      nevada.css("#mw-content-text").css("ul")[43].text #Republicans
-      binding.pry
+      nevada_candidates = {
+        "Democrats" => nevada.css("#mw-content-text").css("ul")[41].text, #Democrats
+        "Democrat (withdrew)" => nevada.css("#mw-content-text").css("ul")[42].text, #Democrat - withdrew
+        "Republicans" => nevada.css("#mw-content-text").css("ul")[43].text #Republicans
+      }
+      nevada_candidates
     end
 
     def self.scrape_northdakota
