@@ -19,7 +19,7 @@ class CLI
        while input != 'exit'
          case input
            when '1'
-             list_arizona_candidates 
+             Scraper.scrape_arizona 
            when '2'
              Scraper.scrape_florida
            #when '3'
