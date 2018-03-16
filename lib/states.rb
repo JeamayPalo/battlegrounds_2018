@@ -14,16 +14,19 @@ class State
 
   @@all = []
 
-  def list_states
-    #add scraped states scrape_states
-    #@@all << Scraper.scrape_states
+  def states
+    @@all << self
   end
 
 #Instance Method
   def list_candidates
       if @name == 'arizona'
         @candidates << Scraper.scrape_arizona
-        puts "The candidates for Arizona are #{@candidates}."
+        puts "The candidates for Arizona are:"
+          @candidates.each do |key, value|
+            puts "#{key}"
+            puts "#{value}"
+          end
       elsif @name == 'florida'
         @candidates << Scraper.scrape_florida
         puts "The candidates for Florida are #{@candidates}."

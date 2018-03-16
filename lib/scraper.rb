@@ -1,10 +1,8 @@
-#require_relative './battlegrounds_2018'
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
 class Scraper
-  # Your code goes here...
 
   def self.scrape_states
     doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
