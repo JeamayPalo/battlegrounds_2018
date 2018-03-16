@@ -6,9 +6,9 @@ require 'pry'
 class Scraper
   # Your code goes here...
 
-  def scrape_states
-    doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-    doc.css("span##{@name}").text
+  def self.scrape_states
+    states = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+    states.css("span##{@name}").text
   end
 
   def self.scrape_arizona
@@ -71,26 +71,33 @@ class Scraper
 
     def self.scrape_northdakota
       northdakota = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      northdakota.css("#mw-content-text").css("ul")[44].text #Democrats
-      northdakota.css("#mw-content-text").css("ul")[45].text #Republican
-      northdakota.css("#mw-content-text").css("ul")[46].text #Republicans - Withdrew
-      binding.pry
+      northdakota_candidates = {
+        "Democrats" => northdakota.css("#mw-content-text").css("ul")[44].text, #Democrats
+        "Republican" => northdakota.css("#mw-content-text").css("ul")[45].text, #Republican
+        "Republicans (withdrew)" => northdakota.css("#mw-content-text").css("ul")[46].text #Republicans - Withdrew
+      }
+      northdakota_candidates
     end
 
     def self.scrape_ohio
       ohio = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      ohio.css("#mw-content-text").css("ul")[47].text #Democrats
-      ohio.css("#mw-content-text").css("ul")[48].text #Republican
-      ohio.css("#mw-content-text").css("ul")[49].text #Republicans - Withdrew
-      ohio.css("#mw-content-text").css("ul")[50].text #Not Running
+      ohio_candidates = {
+        "Democrats" => ohio.css("#mw-content-text").css("ul")[47].text, #Democrats
+        "Republican" => ohio.css("#mw-content-text").css("ul")[48].text, #Republican
+        "Republicans (withdrew)" => ohio.css("#mw-content-text").css("ul")[49].text #Republicans - Withdrew
+      }
+      ohio_candidates
     end
 
     def self.scrape_westvirginia
       westvirginia = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      westvirginia.css("#mw-content-text").css("ul")[55].text #Democrats
-      westvirginia.css("#mw-content-text").css("ul")[56].text #Democrats - Withdrew
-      westvirginia.css("#mw-content-text").css("ul")[57].text #Republicans
-      westvirginia.css("#mw-content-text").css("ul")[58].text #Republican - Withdrew
+      westvirginia_candidates = {
+        "Democrats" => westvirginia.css("#mw-content-text").css("ul")[55].text #Democrats
+        "Democrats (withdrew)" => westvirginia.css("#mw-content-text").css("ul")[56].text #Democrats - Withdrew
+        "Republicans" => westvirginia.css("#mw-content-text").css("ul")[57].text #Republicans
+        "Republican (withdrew)" => westvirginia.css("#mw-content-text").css("ul")[58].text #Republican - Withdrew
+      }
+      westvirginia_candidates
     end
 
 end
