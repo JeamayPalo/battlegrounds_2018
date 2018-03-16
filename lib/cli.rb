@@ -7,7 +7,7 @@ class CLI
 
     def self.list_states
        puts "Here are the Battleground States for Midterms 2018"
-       State.scrape_states
+       Scraper.scrape_states
        goodbye
        binding.pry
     end
@@ -19,23 +19,23 @@ class CLI
        while input != 'exit'
          case input
            when '1'
-             Candidate.scrape_arizona
+             list_arizona_candidates 
            when '2'
-             Candidate.scrape_florida
-           when '3'
-             Candidate.scrape_indiana
+             Scraper.scrape_florida
+           #when '3'
+             #Candidate.scrape_indiana
            when '4'
-             Candidate.scrape_missouri
+             Scraper.scrape_missouri
            when '5'
-             Candidate.scrape_montana
+             Scraper.scrape_montana
            when '6'
-             Candidate.scrape_nevada
+             Scraper.scrape_nevada
            when '7'
-             Candidate.scrape_northdakota
+             Scraper.scrape_northdakota
            when '8'
-             Candidate.scrape_ohio
+             Scraper.scrape_ohio
            when '9'
-             Candidate.scrape_westviriginia
+             Scraper.scrape_westviriginia
            binding.pry
         end
       end
@@ -47,4 +47,4 @@ class CLI
 
 end
 
-CLI.list_states
+CLI.list_state_candidates

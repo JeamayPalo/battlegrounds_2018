@@ -7,8 +7,9 @@ class Scraper
   # Your code goes here...
 
   def self.scrape_states
-    states = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-    states.css("span##{@name}").text
+    doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+    battleground_states = doc.css("span##{@name}").text
+    battleground_states
   end
 
   def self.scrape_arizona
@@ -92,9 +93,9 @@ class Scraper
     def self.scrape_westvirginia
       westvirginia = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       westvirginia_candidates = {
-        "Democrats" => westvirginia.css("#mw-content-text").css("ul")[55].text #Democrats
-        "Democrats (withdrew)" => westvirginia.css("#mw-content-text").css("ul")[56].text #Democrats - Withdrew
-        "Republicans" => westvirginia.css("#mw-content-text").css("ul")[57].text #Republicans
+        "Democrats" => westvirginia.css("#mw-content-text").css("ul")[55].text, #Democrats
+        "Democrats (withdrew)" => westvirginia.css("#mw-content-text").css("ul")[56].text, #Democrats - Withdrew
+        "Republicans" => westvirginia.css("#mw-content-text").css("ul")[57].text, #Republicans
         "Republican (withdrew)" => westvirginia.css("#mw-content-text").css("ul")[58].text #Republican - Withdrew
       }
       westvirginia_candidates
@@ -102,4 +103,4 @@ class Scraper
 
 end
 
-Scraper.scrape_arizona
+Scraper.scrape_florida
