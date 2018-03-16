@@ -3,25 +3,25 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-class Candidate
+class Scraper
   # Your code goes here...
-    attr_accessor :party, :name, :status, :state
 
-    def initialize (status = 'candidate')
-      @name = name
-      @party = party
-      @status = status
-      @state = state
-    end
+  def scrape_states
+    doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+    doc.css("span##{@name}").text
+  end
 
-    def self.scrape_arizona
+  def self.scrape_arizona
       arizona = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-      arizona.css("#mw-content-text").css("ul")[8].text #Incumbent
-      arizona.css("#mw-content-text").css("ul")[5].text #Democrats
-      arizona.css("#mw-content-text").css("ul")[6].text #Republicans
-      arizona.css("#mw-content-text").css("ul")[7].text #Independent
-      arizona.css("#mw-content-text").css("ul")[9].text #Libertarian
-    end
+      arizona_candidates = {
+        "Incumbent" => arizona.css("#mw-content-text").css("ul")[8].text, #Incumbent
+        "Democrats" => arizona.css("#mw-content-text").css("ul")[5].text, #Democrats
+        "Republicans" => arizona.css("#mw-content-text").css("ul")[6].text, #Republicans
+        "Independent" => arizona.css("#mw-content-text").css("ul")[7].text, #Independent
+        "Libertarian" => arizona.css("#mw-content-text").css("ul")[9].text #Libertarian
+      }
+      arizona_candidates
+  end
 
     def self.scrape_florida
       florida = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
@@ -81,7 +81,8 @@ class Candidate
       westvirginia.css("#mw-content-text").css("ul")[56].text #Democrats - Withdrew
       westvirginia.css("#mw-content-text").css("ul")[57].text #Republicans
       westvirginia.css("#mw-content-text").css("ul")[58].text #Republican - Withdrew
-      binding.pry
     end
 
 end
+
+Scraper.scrape_arizona

@@ -1,7 +1,8 @@
-#require_relative '../battlegrounds_2018'
-require 'nokogiri'
+require_relative './scraper'
+
 require 'open-uri'
 require 'pry'
+require 'nokogiri'
 
 class State
   attr_accessor :name, :candidates
@@ -13,10 +14,15 @@ class State
 
   @@all = []
 
-  def self.scrape_states
-    doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-    doc.css("span##{@name}").text
+  def list_states
+    #scrape_states
   end
+
+  def list_candidates
+    @candidates << Scraper.scrape_arizona
+    binding.pry
+  end
+
 
   #def self.all
     #@@all << self
@@ -30,5 +36,6 @@ class State
   #def self.candidates
     #@candidates << Candidates.new
   #end
-
 end
+
+Pry.start
