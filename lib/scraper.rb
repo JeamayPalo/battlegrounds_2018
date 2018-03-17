@@ -38,45 +38,45 @@ class Scraper
     def self.scrape_missouri
       missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       missouri_candidates = {
-        "Democrats" => missouri.css("#mw-content-text").css("ul")[31].text, #Democrats
-        "Republicans" => missouri.css("#mw-content-text").css("ul")[32].text, #Republicans
-        "Republican (withdrew)" => missouri.css("#mw-content-text").css("ul")[33].text, #Republican - Withdrew
-        "Independent" => missouri.css("#mw-content-text").css("ul")[34].text, #Independent
-        "Libertarian" => missouri.css("#mw-content-text").css("ul")[35].text #Libertarian
+        "Democrats" => [missouri.css("#mw-content-text").css("ul")[31].text], #Democrats
+        "Republicans" => [missouri.css("#mw-content-text").css("ul")[32].text], #Republicans
+        "Republican (withdrew)" => [missouri.css("#mw-content-text").css("ul")[33].text], #Republican - Withdrew
+        "Independent" => [missouri.css("#mw-content-text").css("ul")[34].text], #Independent
+        "Libertarian" => [missouri.css("#mw-content-text").css("ul")[35].text] #Libertarian
       }
-      missouri_candidates
+      missouri_candidates.each {|key, array| puts "#{key}: #{array}"}
     end
 
     def self.scrape_montana
       montana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       montana_candidates = {
-        "Democrats" => montana.css("#mw-content-text").css("ul")[36].text,  #Democrats
-        "Republicans" => montana.css("#mw-content-text").css("ul")[37].text,  #Republicans
-        "Republicans (withdrew)" => montana.css("#mw-content-text").css("ul")[38].text,  #Republicans - Withdrew
-        "Green Party" => montana.css("#mw-content-text").css("ul")[39].text,  #Green Party
-        "Libertarian" => montana.css("#mw-content-text").css("ul")[40].text  #Libertarian
+        "Democrats" => [montana.css("#mw-content-text").css("ul")[36].text],  #Democrats
+        "Republicans" => [montana.css("#mw-content-text").css("ul")[37].text],  #Republicans
+        "Republicans (withdrew)" => [montana.css("#mw-content-text").css("ul")[38].text],  #Republicans - Withdrew
+        "Green Party" => [montana.css("#mw-content-text").css("ul")[39].text],  #Green Party
+        "Libertarian" => [montana.css("#mw-content-text").css("ul")[40].text]  #Libertarian
       }
-      montana_candidates
+      montana_candidates.each {|key, array| puts "#{key}: #{array}"}
     end
 
     def self.scrape_nevada
       nevada = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       nevada_candidates = {
-        "Democrats" => nevada.css("#mw-content-text").css("ul")[41].text, #Democrats
-        "Democrat (withdrew)" => nevada.css("#mw-content-text").css("ul")[42].text, #Democrat - withdrew
-        "Republicans" => nevada.css("#mw-content-text").css("ul")[43].text #Republicans
+        "Democrats" => [nevada.css("#mw-content-text").css("ul")[41].text], #Democrats
+        "Democrat (withdrew)" => [nevada.css("#mw-content-text").css("ul")[42].text], #Democrat - withdrew
+        "Republicans" => [nevada.css("#mw-content-text").css("ul")[43].text] #Republicans
       }
-      nevada_candidates
+      nevada_candidates.each {|key, array| puts "#{key}: #{array}"}
     end
 
     def self.scrape_northdakota
       northdakota = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       northdakota_candidates = {
-        "Democrats" => northdakota.css("#mw-content-text").css("ul")[44].text, #Democrats
-        "Republican" => northdakota.css("#mw-content-text").css("ul")[45].text, #Republican
-        "Republicans (withdrew)" => northdakota.css("#mw-content-text").css("ul")[46].text #Republicans - Withdrew
+        "Democrats" => [northdakota.css("#mw-content-text").css("ul")[44].text], #Democrats
+        "Republican" => [northdakota.css("#mw-content-text").css("ul")[45].text], #Republican
+        "Republicans (withdrew)" => [northdakota.css("#mw-content-text").css("ul")[46].text] #Republicans - Withdrew
       }
-      northdakota_candidates
+      northdakota_candidates.each {|key, array| puts "#{key}: #{array}"}
     end
 
     def self.scrape_ohio
