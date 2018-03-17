@@ -13,25 +13,26 @@ class Scraper
   def self.scrape_arizona
       arizona = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       arizona_candidates = {
-        "Incumbent" => arizona.css("#mw-content-text").css("ul")[8].text, #Incumbent
-        "Democrats" => arizona.css("#mw-content-text").css("ul")[5].text, #Democrats
-        "Republicans" => arizona.css("#mw-content-text").css("ul")[6].text, #Republicans
-        "Independent" => arizona.css("#mw-content-text").css("ul")[7].text, #Independent
-        "Libertarian" => arizona.css("#mw-content-text").css("ul")[9].text #Libertarian
+        "Incumbent" => [arizona.css("#mw-content-text").css("ul")[8].text], #Incumbent
+        "Democrats" => [arizona.css("#mw-content-text").css("ul")[5].text], #Democrats
+        "Republicans" => [arizona.css("#mw-content-text").css("ul")[6].text], #Republicans
+        "Independent" => [arizona.css("#mw-content-text").css("ul")[7].text], #Independent
+        "Libertarian" => [arizona.css("#mw-content-text").css("ul")[9].text] #Libertarian
       }
-      arizona_candidates
+      arizona_candidates.each {|key, array| puts "#{key}: #{array}"}
+      binding.pry
   end
 
     def self.scrape_florida
       florida = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       florida_candidates = {
-        "Democrats" => florida.css("#mw-content-text").css("ul")[10].text,  #Democrats
-        "Republicans" => florida.css("#mw-content-text").css("ul")[11].text,  #Republicans
-        "Potential" => florida.css("#mw-content-text").css("ul")[12].text,  #Potential
-        "Libertarian" => florida.css("#mw-content-text").css("ul")[13].text,  #Libertarian
-        "Independents" => florida.css("#mw-content-text").css("ul")[14].text  #Independents
+        "Democrats" => [florida.css("#mw-content-text").css("ul")[10].text],  #Democrats
+        "Republicans" => [florida.css("#mw-content-text").css("ul")[11].text],  #Republicans
+        "Potential" => [florida.css("#mw-content-text").css("ul")[12].text],  #Potential
+        "Libertarian" => [florida.css("#mw-content-text").css("ul")[13].text],  #Libertarian
+        "Independents" => [florida.css("#mw-content-text").css("ul")[14].text]  #Independents
       }
-      florida_candidates
+      florida_candidates.each {|key, array| puts "#{key}: #{array}"}
     end
 
     def self.scrape_missouri
@@ -101,4 +102,4 @@ class Scraper
 
 end
 
-Scraper.scrape_florida
+Pry.start
