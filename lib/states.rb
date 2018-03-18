@@ -60,7 +60,8 @@ class State
         puts "The Missouri candidates are:"
         Scraper.scrape_missouri
       elsif @name == 'montana'
-        @candidates.each { |key, value| puts "The candidates for Montana are: #{key} - #{value}."}
+        puts "The Montana candidates are:"
+        Scraper.scrape_montana
       elsif @name == 'nevada'
         @candidates.each { |key, value| puts "The candidates for Nevada are: #{key} - #{value}."}
       elsif @name == 'northdakota'
