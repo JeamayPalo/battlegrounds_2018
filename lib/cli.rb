@@ -1,4 +1,7 @@
+require 'nokogiri'
+require 'open-uri'
 require 'pry'
+
 require_relative './scraper'
 require_relative './states'
 
@@ -9,7 +12,6 @@ class CLI
        puts "Here are the Battleground States for Midterms 2018"
        Scraper.scrape_states
        goodbye
-       binding.pry
     end
 
      def self.list_state_candidates
