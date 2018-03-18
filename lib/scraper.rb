@@ -62,7 +62,12 @@ class Scraper
         "Independent" => [missouri.css("#mw-content-text").css("ul")[34].text], #Independent
         "Libertarian" => [missouri.css("#mw-content-text").css("ul")[35].text] #Libertarian
       }
-      missouri_candidates
+      missouri_candidates.each do |key, array|
+        puts "#{key}"
+        array.each do |candidate|
+          puts "#{candidate}"
+        end
+      end
     end
 
     def self.scrape_montana
@@ -120,4 +125,4 @@ class Scraper
 
 end
 
-Pry.start 
+Pry.start

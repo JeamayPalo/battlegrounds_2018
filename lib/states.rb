@@ -18,7 +18,7 @@ class State
 
   def self.battleground_states
     puts "The battleground states for the Midterm Elections of 2018 are:"
-    Scraper.scrape_states 
+    Scraper.scrape_states
   end
 
   def self.all
@@ -57,7 +57,8 @@ class State
         puts "The Florida candidates are:"
         Scraper.scrape_florida
       elsif @name == 'missouri'
-        @candidates.each { |key, value| puts "The candidates for Missouri are: #{key} - #{value}."}
+        puts "The Missouri candidates are:"
+        Scraper.scrape_missouri
       elsif @name == 'montana'
         @candidates.each { |key, value| puts "The candidates for Montana are: #{key} - #{value}."}
       elsif @name == 'nevada'
