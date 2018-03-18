@@ -64,9 +64,10 @@ class State
         Scraper.scrape_montana
       elsif @name == 'nevada'
         puts "The Nevada candidates are:"
-        Scraper.scrape_nevada 
+        Scraper.scrape_nevada
       elsif @name == 'northdakota'
-        @candidates.each { |key, value| puts "The candidates for North Dakota are: #{key} - #{value}."}
+        puts "The North Dakota candidates are:"
+        Scraper.scrape_northdakota
       elsif @name == 'ohio'
         @candidates.each { |key, value| puts "The candidates for Ohio are: #{key} - #{value}."}
       elsif @name == 'westvirginia'
