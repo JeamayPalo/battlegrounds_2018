@@ -48,6 +48,11 @@ class State
     end
   end
 
+  def candidates
+    puts "The #{@name.capitalize} candidates are:"
+    add_candidates 
+  end
+
 
   def list_candidates
       if @name == 'arizona'
@@ -69,7 +74,8 @@ class State
         puts "The North Dakota candidates are:"
         Scraper.scrape_northdakota
       elsif @name == 'ohio'
-        @candidates.each { |key, value| puts "The candidates for Ohio are: #{key} - #{value}."}
+        puts "The North Dakota candidates are:"
+        Scraper.scrape_northdakota
       elsif @name == 'westvirginia'
         @candidates.each { |key, value| puts "The candidates for West Virginia are: #{key} - #{value}."}
       else nil

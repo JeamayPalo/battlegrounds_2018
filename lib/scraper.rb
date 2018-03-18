@@ -119,11 +119,15 @@ class Scraper
     def self.scrape_ohio
       ohio = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       ohio_candidates = {
-        "Democrats" => [ohio.css("#mw-content-text").css("ul")[47].text], #Democrats
-        "Republican" => [ohio.css("#mw-content-text").css("ul")[48].text], #Republican
-        "Republicans (withdrew)" => [ohio.css("#mw-content-text").css("ul")[49].text] #Republicans - Withdrew
+        "Democrat" => [ohio.css("#mw-content-text").css("ul")[50].text], #Democrat
+        "Republicans" => [ohio.css("#mw-content-text").css("ul")[51].text] #Republicans
       }
-      ohio_candidates
+      ohio_candidates.each do |key, array|
+        puts "#{key}"
+        array.each do |candidate|
+          puts "#{candidate}"
+        end
+      end
     end
 
     def self.scrape_westvirginia
