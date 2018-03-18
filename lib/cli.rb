@@ -1,9 +1,11 @@
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
+require_relative './environment'
 
-require_relative './scraper'
-require_relative './states'
+#require 'nokogiri'
+#require 'open-uri'
+#require 'pry'
+
+#require_relative './scraper'
+#require_relative './states'
 
 #CLI controller
 class CLI

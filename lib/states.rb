@@ -1,8 +1,9 @@
-require_relative './scraper'
+require_relative './environment'
+#require_relative './scraper'
 
-require 'open-uri'
-require 'pry'
-require 'nokogiri'
+#require 'open-uri'
+#require 'pry'
+#require 'nokogiri'
 
 class State
   attr_accessor :name, :candidates
