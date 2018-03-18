@@ -6,8 +6,17 @@ class Scraper
 
   def self.scrape_states
     doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-    battleground_states = doc.css("span##{@name}").text
-    battleground_states
+    battleground_states = [
+      doc.css("span#Arizona").text,
+      doc.css("span#Florida").text,
+      doc.css("span#Missouri").text,
+      doc.css("span#Montana").text,
+      doc.css("span#Nevada").text,
+      doc.css("span#North_Dakota").text,
+      doc.css("span#Ohio").text,
+      doc.css("span#West_Virginia").text
+    ]
+    battleground_states.each {|state| puts "#{state}"}
   end
 
   def self.scrape_arizona
@@ -19,8 +28,7 @@ class Scraper
         "Independent" => [arizona.css("#mw-content-text").css("ul")[7].text], #Independent
         "Libertarian" => [arizona.css("#mw-content-text").css("ul")[9].text] #Libertarian
       }
-      arizona_candidates.each {|key, array| puts "#{key}: #{array}"}
-      binding.pry
+      arizona_candidates
   end
 
     def self.scrape_florida
@@ -32,7 +40,7 @@ class Scraper
         "Libertarian" => [florida.css("#mw-content-text").css("ul")[13].text],  #Libertarian
         "Independents" => [florida.css("#mw-content-text").css("ul")[14].text]  #Independents
       }
-      florida_candidates.each {|key, array| puts "#{key}: #{array}"}
+      florida_candidates
     end
 
     def self.scrape_missouri
@@ -44,7 +52,7 @@ class Scraper
         "Independent" => [missouri.css("#mw-content-text").css("ul")[34].text], #Independent
         "Libertarian" => [missouri.css("#mw-content-text").css("ul")[35].text] #Libertarian
       }
-      missouri_candidates.each {|key, array| puts "#{key}: #{array}"}
+      missouri_candidates
     end
 
     def self.scrape_montana
@@ -56,7 +64,7 @@ class Scraper
         "Green Party" => [montana.css("#mw-content-text").css("ul")[39].text],  #Green Party
         "Libertarian" => [montana.css("#mw-content-text").css("ul")[40].text]  #Libertarian
       }
-      montana_candidates.each {|key, array| puts "#{key}: #{array}"}
+      montana_candidates
     end
 
     def self.scrape_nevada
@@ -66,7 +74,7 @@ class Scraper
         "Democrat (withdrew)" => [nevada.css("#mw-content-text").css("ul")[42].text], #Democrat - withdrew
         "Republicans" => [nevada.css("#mw-content-text").css("ul")[43].text] #Republicans
       }
-      nevada_candidates.each {|key, array| puts "#{key}: #{array}"}
+      nevada_candidates
     end
 
     def self.scrape_northdakota
@@ -76,15 +84,15 @@ class Scraper
         "Republican" => [northdakota.css("#mw-content-text").css("ul")[45].text], #Republican
         "Republicans (withdrew)" => [northdakota.css("#mw-content-text").css("ul")[46].text] #Republicans - Withdrew
       }
-      northdakota_candidates.each {|key, array| puts "#{key}: #{array}"}
+      northdakota_candidates
     end
 
     def self.scrape_ohio
       ohio = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       ohio_candidates = {
-        "Democrats" => ohio.css("#mw-content-text").css("ul")[47].text, #Democrats
-        "Republican" => ohio.css("#mw-content-text").css("ul")[48].text, #Republican
-        "Republicans (withdrew)" => ohio.css("#mw-content-text").css("ul")[49].text #Republicans - Withdrew
+        "Democrats" => [ohio.css("#mw-content-text").css("ul")[47].text], #Democrats
+        "Republican" => [ohio.css("#mw-content-text").css("ul")[48].text], #Republican
+        "Republicans (withdrew)" => [ohio.css("#mw-content-text").css("ul")[49].text] #Republicans - Withdrew
       }
       ohio_candidates
     end
@@ -92,14 +100,12 @@ class Scraper
     def self.scrape_westvirginia
       westvirginia = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       westvirginia_candidates = {
-        "Democrats" => westvirginia.css("#mw-content-text").css("ul")[55].text, #Democrats
-        "Democrats (withdrew)" => westvirginia.css("#mw-content-text").css("ul")[56].text, #Democrats - Withdrew
-        "Republicans" => westvirginia.css("#mw-content-text").css("ul")[57].text, #Republicans
-        "Republican (withdrew)" => westvirginia.css("#mw-content-text").css("ul")[58].text #Republican - Withdrew
+        "Democrats" => [westvirginia.css("#mw-content-text").css("ul")[55].text], #Democrats
+        "Democrats (withdrew)" => [westvirginia.css("#mw-content-text").css("ul")[56].text], #Democrats - Withdrew
+        "Republicans" => [westvirginia.css("#mw-content-text").css("ul")[57].text], #Republicans
+        "Republican (withdrew)" => [westvirginia.css("#mw-content-text").css("ul")[58].text] #Republican - Withdrew
       }
       westvirginia_candidates
     end
 
 end
-
-Pry.start

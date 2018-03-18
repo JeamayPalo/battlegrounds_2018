@@ -48,4 +48,7 @@ class CLI
 
 end
 
+list_states
+list_state_candidates
+
 CLI.list_state_candidates

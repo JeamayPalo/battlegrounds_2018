@@ -16,8 +16,8 @@ class State
 
 #Class Methods
 
-  def self.all
-    @@all << self
+  def all
+    @@all << self 
   end
 
 #Instance Methods
@@ -42,6 +42,7 @@ class State
       else nil
     end
   end
+
 
   def list_candidates
       if @name == 'arizona'
