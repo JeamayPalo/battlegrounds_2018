@@ -16,7 +16,7 @@ class State
 
 #Class Methods
 
-  def self.battleground_states
+  def self.battleground
     puts "The battleground states for the Midterm Elections of 2018 are:"
     Scraper.scrape_states
   end
@@ -48,39 +48,11 @@ class State
     end
   end
 
-  def candidates
-    puts "The #{@name.capitalize} candidates are:"
-    add_candidates 
-  end
-
-
-  def list_candidates
-      if @name == 'arizona'
-        puts "The Arizona candidates are:"
-        Scraper.scrape_arizona
-      elsif @name == 'florida'
-        puts "The Florida candidates are:"
-        Scraper.scrape_florida
-      elsif @name == 'missouri'
-        puts "The Missouri candidates are:"
-        Scraper.scrape_missouri
-      elsif @name == 'montana'
-        puts "The Montana candidates are:"
-        Scraper.scrape_montana
-      elsif @name == 'nevada'
-        puts "The Nevada candidates are:"
-        Scraper.scrape_nevada
-      elsif @name == 'northdakota'
-        puts "The North Dakota candidates are:"
-        Scraper.scrape_northdakota
-      elsif @name == 'ohio'
-        puts "The North Dakota candidates are:"
-        Scraper.scrape_northdakota
-      elsif @name == 'westvirginia'
-        @candidates.each { |key, value| puts "The candidates for West Virginia are: #{key} - #{value}."}
-      else nil
+    def list_candidates
+      puts "The #{@name.capitalize} candidates are:"
+      add_candidates
     end
-  end
+
 
 
 end
