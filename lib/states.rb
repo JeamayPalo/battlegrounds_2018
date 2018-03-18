@@ -27,7 +27,8 @@ class State
 
 #Instance Methods
 
-  def add_candidates
+  def list_candidates
+    puts "The #{@name.capitalize} candidates are:"
       if @name == 'arizona'
         @candidates << Scraper.scrape_arizona
       elsif @name == 'florida'
@@ -47,13 +48,6 @@ class State
       else nil
     end
   end
-
-    def list_candidates
-      puts "The #{@name.capitalize} candidates are:"
-      add_candidates
-    end
-
-
 
 end
 
