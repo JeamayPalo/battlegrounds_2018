@@ -16,8 +16,13 @@ class State
 
 #Class Methods
 
-  def all
-    @@all << self 
+  def self.battleground_states
+    puts "The battleground states for the Midterm Elections of 2018 are:"
+    Scraper.scrape_states 
+  end
+
+  def self.all
+    @@all << self
   end
 
 #Instance Methods
@@ -46,9 +51,11 @@ class State
 
   def list_candidates
       if @name == 'arizona'
-        @candidates.each { |key, value| puts "The candidates for Arizona are: #{key} - #{value}."}
+        puts "The Arizona candidates are:"
+        Scraper.scrape_arizona
       elsif @name == 'florida'
-        @candidates.each { |key, value| puts "The candidates for Florida are: #{key} - #{value}."}
+        puts "The Florida candidates are:"
+        Scraper.scrape_florida
       elsif @name == 'missouri'
         @candidates.each { |key, value| puts "The candidates for Missouri are: #{key} - #{value}."}
       elsif @name == 'montana'

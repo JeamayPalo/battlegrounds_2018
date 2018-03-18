@@ -28,7 +28,12 @@ class Scraper
         "Independent" => [arizona.css("#mw-content-text").css("ul")[7].text], #Independent
         "Libertarian" => [arizona.css("#mw-content-text").css("ul")[9].text] #Libertarian
       }
-      arizona_candidates
+      arizona_candidates.each do |key, array|
+        puts "#{key}"
+        array.each do |candidate|
+          puts "#{candidate}"
+        end
+      end
   end
 
     def self.scrape_florida
@@ -40,7 +45,12 @@ class Scraper
         "Libertarian" => [florida.css("#mw-content-text").css("ul")[13].text],  #Libertarian
         "Independents" => [florida.css("#mw-content-text").css("ul")[14].text]  #Independents
       }
-      florida_candidates
+      florida_candidates.each do |key, array|
+        puts "#{key}"
+        array.each do |candidate|
+          puts "#{candidate}"
+        end
+      end
     end
 
     def self.scrape_missouri
@@ -109,3 +119,5 @@ class Scraper
     end
 
 end
+
+Pry.start 

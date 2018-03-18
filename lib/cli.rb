@@ -20,7 +20,6 @@ class CLI
          case input
            when '1'
              Scraper.scrape_arizona
-             #State.list_candidates?
            when '2'
              Scraper.scrape_florida
            #when '3'
@@ -48,7 +47,7 @@ class CLI
 
 end
 
-list_states
-list_state_candidates
+#list_states
+#list_state_candidates
 
-CLI.list_state_candidates
+#CLI.list_state_candidates
