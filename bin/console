@@ -12,3 +12,5 @@ require "battlegrounds_2018"
 
 require "irb"
 IRB.start(__FILE__)
+
+#CLI.call

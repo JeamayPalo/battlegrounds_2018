@@ -23,10 +23,20 @@ class State
   end
 
   def self.all
-    @@all << self
+    @@all
+  end
+
+  def self.create(name)
+    state = self.new(name)
+    state.save
+    state
   end
 
 #Instance Methods
+
+  def save
+    @@all << self
+  end
 
   def list_candidates
     puts "The #{@name.capitalize} candidates are:"

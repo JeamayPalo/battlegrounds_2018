@@ -18,7 +18,10 @@ class Scraper
       doc.css("span#Ohio").text,
       doc.css("span#West_Virginia").text
     ]
-    battleground_states.each {|state| puts "#{state}"}
+    battleground_states.each do |state|
+      puts "#{state}"
+      State.create(state) #create by name so it doesn't duplicate
+    end
   end
 
   def self.scrape_arizona
