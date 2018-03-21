@@ -38,7 +38,7 @@ class CLI
        when '8'
          Scraper.scrape_ohio
        when '9'
-         Scraper.scrape_westviriginia
+         Scraper.scrape_westvirginia
       end
     end
   end

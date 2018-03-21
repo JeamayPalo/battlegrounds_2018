@@ -37,97 +37,97 @@ class Scraper
     end
   end
 
+  #Possible Refactoring:
   #def self.scrape_arizona(party = [], candidates = [])
     #party = ["Democrats", "Republicans", "Independent", "Incumbent", "Libertarian"]
-    #candidates = [Scraper.scrape_candidates(5..9)]
+    #candidates = [Scraper.scrape_candidates(5..9).to_a.sort_by {|index| Scraper.scrape_candidates(index)}]
     #arizona_candidates = Hash[party.zip(candidates)]
     #Scraper.enumerate(arizona_candidates)
-    #binding.pry
   #end
 
   def self.scrape_arizona
-      arizona_candidates = {
-        "Incumbent" => Scraper.scrape_candidates(8), #Incumbent
-        "Democrats" => Scraper.scrape_candidates(5), #Democrats
-        "Republicans" => Scraper.scrape_candidates(6), #Republicans
-        "Independent" => Scraper.scrape_candidates(7), #Independent
-        "Libertarian" => Scraper.scrape_candidates(9) #Libertarian
-      }
-      Scraper.enumerate(arizona_candidates)
+    arizona_candidates = {
+      "Incumbent" => Scraper.scrape_candidates(8), #Incumbent
+      "Democrats" => Scraper.scrape_candidates(5), #Democrats
+      "Republicans" => Scraper.scrape_candidates(6), #Republicans
+      "Independent" => Scraper.scrape_candidates(7), #Independent
+      "Libertarian" => Scraper.scrape_candidates(9) #Libertarian
+    }
+    Scraper.enumerate(arizona_candidates)
   end
 
-    def self.scrape_florida
-      florida_candidates = {
-        "Democrats" => Scraper.scrape_candidates(10), #Democrats
-        "Republicans" => Scraper.scrape_candidates(11), #Republicans
-        "Potential" => Scraper.scrape_candidates(12),  #Potential
-        "Libertarian" => Scraper.scrape_candidates(13),  #Libertarian
-        "Independents" => Scraper.scrape_candidates(14) #Independents
-      }
-      Scraper.enumerate(florida_candidates)
-    end
+  def self.scrape_florida(party = [], candidates = [])
+    florida_candidates = {
+      "Democrats" => Scraper.scrape_candidates(10), #Democrats
+      "Republicans" => Scraper.scrape_candidates(11), #Republicans
+      "Potential" => Scraper.scrape_candidates(12),  #Potential
+      "Libertarian" => Scraper.scrape_candidates(13),  #Libertarian
+      "Independents" => Scraper.scrape_candidates(14) #Independents
+    }
+    Scraper.enumerate(florida_candidates)
+  end
 
-    def self.scrape_indiana
-      indiana_candidates = {
-        "Democrat - Incumbent" => Scraper.scrape_candidates(15), #Democrats
-        "Republicans" => Scraper.scrape_candidates(17), #Republicans
-        "Independents" => Scraper.scrape_candidates(19) #Independents
-      }
-      Scraper.enumerate(indiana_candidates)
-    end
+  def self.scrape_indiana
+    indiana_candidates = {
+      "Democrat - Incumbent" => Scraper.scrape_candidates(15), #Democrats
+      "Republicans" => Scraper.scrape_candidates(17), #Republicans
+      "Independents" => Scraper.scrape_candidates(19) #Independents
+    }
+    Scraper.enumerate(indiana_candidates)
+  end
 
-    def self.scrape_missouri
-      missouri_candidates = {
-        "Democrats" => Scraper.scrape_candidates(31), #Democrats
-        "Republicans" => Scraper.scrape_candidates(32), #Republicans
-        "Independent" => Scraper.scrape_candidates(34), #Independent
-        "Libertarian" => Scraper.scrape_candidates(35) #Libertarian
-      }
-      Scraper.enumerate(missouri_candidates)
-    end
+  def self.scrape_missouri
+    missouri_candidates = {
+      "Democrats" => Scraper.scrape_candidates(31), #Democrats
+      "Republicans" => Scraper.scrape_candidates(32), #Republicans
+      "Independent" => Scraper.scrape_candidates(34), #Independent
+      "Libertarian" => Scraper.scrape_candidates(35) #Libertarian
+    }
+    Scraper.enumerate(missouri_candidates)
+  end
 
-    def self.scrape_montana
-      montana_candidates = {
-        "Democrats" => Scraper.scrape_candidates(36), #Democrats
-        "Republicans" => Scraper.scrape_candidates(37), #Republicans
-        "Green Party" => Scraper.scrape_candidates(39), #Green Party
-        "Libertarian" => Scraper.scrape_candidates(40) #Libertarian
-      }
-      Scraper.enumerate(montana_candidates)
-    end
+  def self.scrape_montana
+    montana_candidates = {
+      "Democrats" => Scraper.scrape_candidates(36), #Democrats
+      "Republicans" => Scraper.scrape_candidates(37), #Republicans
+      "Green Party" => Scraper.scrape_candidates(39), #Green Party
+      "Libertarian" => Scraper.scrape_candidates(40) #Libertarian
+    }
+    Scraper.enumerate(montana_candidates)
+  end
 
-    def self.scrape_nevada
-      nevada_candidates = {
-        "Democrats" => Scraper.scrape_candidates(43), #Democrats
-        "Republicans" => Scraper.scrape_candidates(45) #Republicans
-      }
-      Scraper.enumerate(nevada_candidates)
-    end
+  def self.scrape_nevada
+    nevada_candidates = {
+      "Democrats" => Scraper.scrape_candidates(43), #Democrats
+      "Republicans" => Scraper.scrape_candidates(45) #Republicans
+    }
+    Scraper.enumerate(nevada_candidates)
+  end
 
-    def self.scrape_northdakota
-      northdakota_candidates = {
-        "Democrats" => Scraper.scrape_candidates(47), #Democrats
-        "Republican" => Scraper.scrape_candidates(48) #Republican
-      }
-      Scraper.enumerate(northdakota_candidates)
-    end
+  def self.scrape_northdakota
+    northdakota_candidates = {
+      "Democrats" => Scraper.scrape_candidates(47), #Democrats
+      "Republican" => Scraper.scrape_candidates(48) #Republican
+    }
+    Scraper.enumerate(northdakota_candidates)
+  end
 
-    def self.scrape_ohio
-      ohio_candidates = {
-        "Democrat" => Scraper.scrape_candidates(50), #Democrat
-        "Republicans" => Scraper.scrape_candidates(51) #Republicans
-      }
-      Scraper.enumerate(ohio_candidates)
-    end
+  def self.scrape_ohio
+    ohio_candidates = {
+      "Democrat" => Scraper.scrape_candidates(50), #Democrat
+      "Republicans" => Scraper.scrape_candidates(51) #Republicans
+    }
+    Scraper.enumerate(ohio_candidates)
+  end
 
-    def self.scrape_westvirginia
-      westvirginia_candidates = {
-        "Democrats" => Scraper.scrape_candidates(58), #Democrats
-        "Republicans" => Scraper.scrape_candidates(60) #Republicans
-      }
-      Scraper.enumerate(westvirginia_candidates)
-    end
+  def self.scrape_westvirginia
+    westvirginia_candidates = {
+      "Democrats" => Scraper.scrape_candidates(53), #Democrats
+      "Republicans" => Scraper.scrape_candidates(55) #Republicans
+    }
+    Scraper.enumerate(westvirginia_candidates)
+  end
 
 end
 
-Pry.start
+#Pry.start
