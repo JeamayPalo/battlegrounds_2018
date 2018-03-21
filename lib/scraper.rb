@@ -59,38 +59,27 @@ class Scraper
         "Independents" => Scraper.scrape_candidates(14) #Independents
       }
       Scraper.enumerate(florida_candidates)
-      binding.pry
     end
 
     def self.scrape_indiana
       indiana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       indiana_candidates = {
-        "Democrat - Incumbent" => [indiana.css("#mw-content-text").css("ul")[15].text],  #Democrats
-        "Republicans" => [indiana.css("#mw-content-text").css("ul")[17].text],  #Republicans
-        "Independents" => [indiana.css("#mw-content-text").css("ul")[19].text]  #Independents
+        "Democrat - Incumbent" => Scraper.scrape_candidates(15), #Democrats
+        "Republicans" => Scraper.scrape_candidates(17), #Republicans
+        "Independents" => Scraper.scrape_candidates(19) #Independents
       }
-      indiana_candidates.each do |key, array|
-        puts "#{key}"
-        array.each do |candidate|
-          puts "#{candidate}"
-        end
-      end
+      Scraper.enumerate(indiana_candidates)
     end
 
     def self.scrape_missouri
       missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       missouri_candidates = {
-        "Democrats" => [missouri.css("#mw-content-text").css("ul")[31].text], #Democrats
-        "Republicans" => [missouri.css("#mw-content-text").css("ul")[32].text], #Republicans
-        "Independent" => [missouri.css("#mw-content-text").css("ul")[34].text], #Independent
-        "Libertarian" => [missouri.css("#mw-content-text").css("ul")[35].text] #Libertarian
+        "Democrats" => Scraper.scrape_candidates(31), #Democrats
+        "Republicans" => Scraper.scrape_candidates(32), #Republicans
+        "Independent" => Scraper.scrape_candidates(34), #Independent
+        "Libertarian" => Scraper.scrape_candidates(35) #Libertarian
       }
-      missouri_candidates.each do |key, array|
-        puts "#{key}"
-        array.each do |candidate|
-          puts "#{candidate}"
-        end
-      end
+      Scraper.enumerate(missouri_candidates)
     end
 
     def self.scrape_montana
