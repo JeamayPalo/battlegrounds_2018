@@ -37,23 +37,11 @@ class Scraper
     end
   end
 
-  #def self.scrape_state_candidates(party = [], candidates = [])
-    #party = ["Democrats", "Republicans"]
-    #candidates = ["Jem Palo", "Beau Bellenfant"]
-    #dc_candidates = Hash[party.zip(candidates)]
-    #dc_candidates
-    #binding.pry
-  #end
-
-  def self.scrape_state_candidates(name, party = [], candidates = [])
-    name = Hash[party.zip(candidates)]
-  end
-
   #def self.scrape_arizona(party = [], candidates = [])
-    #party = ["Democrats", "Republicans", "Libertarians"]
-    #candidates = (5..7).each {|i| Scraper.scrape_candidates(i)}
-    #Scraper.scrape_state_candidates("arizona", party, candidates)
-    #Scraper.enumerate("arizona")
+    #party = ["Democrats", "Republicans", "Independent", "Incumbent", "Libertarian"]
+    #candidates = [Scraper.scrape_candidates(5..9)]
+    #arizona_candidates = Hash[party.zip(candidates)]
+    #Scraper.enumerate(arizona_candidates)
     #binding.pry
   #end
 
@@ -142,4 +130,4 @@ class Scraper
 
 end
 
-#Pry.start
+Pry.start
