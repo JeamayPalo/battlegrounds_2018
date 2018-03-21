@@ -103,45 +103,30 @@ class Scraper
     end
 
     def self.scrape_northdakota
-      northdakota = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       northdakota_candidates = {
-        "Democrats" => [northdakota.css("#mw-content-text").css("ul")[47].text], #Democrats
-        "Republican" => [northdakota.css("#mw-content-text").css("ul")[48].text], #Republican
+        "Democrats" => Scraper.scrape_candidates(47), #Democrats
+        "Republican" => Scraper.scrape_candidates(48) #Republican
       }
-      northdakota_candidates.each do |key, array|
-        puts "#{key}"
-        array.each do |candidate|
-          puts "#{candidate}"
-        end
-      end
+      Scraper.enumerate(northdakota_candidates)
     end
 
     def self.scrape_ohio
       ohio = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       ohio_candidates = {
-        "Democrat" => [ohio.css("#mw-content-text").css("ul")[50].text], #Democrat
-        "Republicans" => [ohio.css("#mw-content-text").css("ul")[51].text] #Republicans
+        "Democrat" => Scraper.scrape_candidates(50), #Democrat
+        "Republicans" => Scraper.scrape_candidates(51) #Republicans
       }
-      ohio_candidates.each do |key, array|
-        puts "#{key}"
-        array.each do |candidate|
-          puts "#{candidate}"
-        end
-      end
+      Scraper.enumerate(ohio_candidates)
     end
 
     def self.scrape_westvirginia
-      westvirginia = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       westvirginia_candidates = {
-        "Democrats" => [westvirginia.css("#mw-content-text").css("ul")[58].text], #Democrats
-        "Republicans" => [westvirginia.css("#mw-content-text").css("ul")[60].text], #Republicans
+        "Democrats" => Scraper.scrape_candidates(58), #Democrats
+        "Republicans" => Scraper.scrape_candidates(60) #Republicans
       }
-      westvirginia_candidates.each do |key, array|
-        puts "#{key}"
-        array.each do |candidate|
-          puts "#{candidate}"
-        end
-      end
+      Scraper.enumerate(westvirginia_candidates)
     end
 
 end
