@@ -39,6 +39,8 @@ class CLI
          Scraper.scrape_ohio
        when '9'
          Scraper.scrape_westvirginia
+       else
+         puts "Invalid Input"
       end
     end
   end
