@@ -1,12 +1,5 @@
 require_relative './environment'
 
-#require 'nokogiri'
-#require 'open-uri'
-#require 'pry'
-
-#require_relative './scraper'
-#require_relative './states'
-
 #CLI controller
 class CLI
 
@@ -25,7 +18,7 @@ class CLI
   def self.list_state_candidates
    input = nil
     while input != 'exit'
-     puts "Please enter the state number (1-9):"
+     puts "To find out your State's candidates, please enter the State number (1-9):"
      input = gets.strip
      case input
        when '1'

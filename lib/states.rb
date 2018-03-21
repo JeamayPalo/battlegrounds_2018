@@ -1,9 +1,4 @@
 require_relative './environment'
-#require_relative './scraper'
-
-#require 'open-uri'
-#require 'pry'
-#require 'nokogiri'
 
 class State
   attr_accessor :name, :candidates
@@ -54,6 +49,8 @@ class State
         @candidates << Scraper.scrape_arizona
       elsif @name == 'florida'
         @candidates << Scraper.scrape_florida
+      elsif @name == 'indiana'
+        @candidates << Scraper.scrape_indiana
       elsif @name == 'missouri'
         @candidates << Scraper.scrape_missouri
       elsif @name == 'montana'
