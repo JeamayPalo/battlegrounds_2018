@@ -25,10 +25,6 @@ class Scraper
     end
   end
 
-  #def self.create(params)
-    #@Incumbent = params[:Incumbent]
-  #end
-
   def self.scrape_arizona
       arizona = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       arizona_candidates = {
@@ -65,9 +61,18 @@ class Scraper
 
     def self.scrape_indiana
       indiana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      indiana_candidates = {
+        "Democrat - Incumbent" => [indiana.css("#mw-content-text").css("ul")[15].text],  #Democrats
+        "Republicans" => [indiana.css("#mw-content-text").css("ul")[17].text],  #Republicans
+        "Independents" => [indiana.css("#mw-content-text").css("ul")[19].text]  #Independents
+      }
+      indiana_candidates.each do |key, array|
+        puts "#{key}"
+        array.each do |candidate|
+          puts "#{candidate}"
+        end
+      end
     end
-
-
 
     def self.scrape_missouri
       missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
@@ -164,4 +169,4 @@ class Scraper
 
 end
 
-Pry.start
+#Pry.start

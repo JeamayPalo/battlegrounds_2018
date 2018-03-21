@@ -32,8 +32,8 @@ class CLI
          Scraper.scrape_arizona
        when '2'
          Scraper.scrape_florida
-       #when '3'
-         #Scraper.scrape_indiana
+       when '3'
+         Scraper.scrape_indiana
        when '4'
          Scraper.scrape_missouri
        when '5'
@@ -55,8 +55,3 @@ class CLI
  end
 
 end
-
-#list_states
-#list_state_candidates
-
-#CLI.list_state_candidates
