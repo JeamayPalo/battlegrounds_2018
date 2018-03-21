@@ -1,5 +1,5 @@
 require_relative './environment'
-
+require_relative './states'
 
 class Scraper
 
@@ -16,9 +16,9 @@ class Scraper
       doc.css("span#Ohio").text,
       doc.css("span#West_Virginia").text
     ]
-    battleground_states.each do |state|
-      puts "#{state}"
-      State.create(state) #create by name so it doesn't duplicate
+    battleground_states.each.with_index(1) do |state, index|
+      puts "#{index}.) #{state}"
+      State.create(state)
     end
   end
 
