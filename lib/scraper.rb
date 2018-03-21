@@ -37,8 +37,27 @@ class Scraper
     end
   end
 
+  #def self.scrape_state_candidates(party = [], candidates = [])
+    #party = ["Democrats", "Republicans"]
+    #candidates = ["Jem Palo", "Beau Bellenfant"]
+    #dc_candidates = Hash[party.zip(candidates)]
+    #dc_candidates
+    #binding.pry
+  #end
+
+  def self.scrape_state_candidates(name, party = [], candidates = [])
+    name = Hash[party.zip(candidates)]
+  end
+
+  #def self.scrape_arizona(party = [], candidates = [])
+    #party = ["Democrats", "Republicans", "Libertarians"]
+    #candidates = (5..7).each {|i| Scraper.scrape_candidates(i)}
+    #Scraper.scrape_state_candidates("arizona", party, candidates)
+    #Scraper.enumerate("arizona")
+    #binding.pry
+  #end
+
   def self.scrape_arizona
-      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       arizona_candidates = {
         "Incumbent" => Scraper.scrape_candidates(8), #Incumbent
         "Democrats" => Scraper.scrape_candidates(5), #Democrats
@@ -50,7 +69,6 @@ class Scraper
   end
 
     def self.scrape_florida
-      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       florida_candidates = {
         "Democrats" => Scraper.scrape_candidates(10), #Democrats
         "Republicans" => Scraper.scrape_candidates(11), #Republicans
@@ -62,7 +80,6 @@ class Scraper
     end
 
     def self.scrape_indiana
-      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       indiana_candidates = {
         "Democrat - Incumbent" => Scraper.scrape_candidates(15), #Democrats
         "Republicans" => Scraper.scrape_candidates(17), #Republicans
@@ -72,7 +89,6 @@ class Scraper
     end
 
     def self.scrape_missouri
-      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       missouri_candidates = {
         "Democrats" => Scraper.scrape_candidates(31), #Democrats
         "Republicans" => Scraper.scrape_candidates(32), #Republicans
@@ -83,7 +99,6 @@ class Scraper
     end
 
     def self.scrape_montana
-      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       montana_candidates = {
         "Democrats" => Scraper.scrape_candidates(36), #Democrats
         "Republicans" => Scraper.scrape_candidates(37), #Republicans
@@ -94,7 +109,6 @@ class Scraper
     end
 
     def self.scrape_nevada
-      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       nevada_candidates = {
         "Democrats" => Scraper.scrape_candidates(43), #Democrats
         "Republicans" => Scraper.scrape_candidates(45) #Republicans
@@ -103,7 +117,6 @@ class Scraper
     end
 
     def self.scrape_northdakota
-      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       northdakota_candidates = {
         "Democrats" => Scraper.scrape_candidates(47), #Democrats
         "Republican" => Scraper.scrape_candidates(48) #Republican
@@ -112,7 +125,6 @@ class Scraper
     end
 
     def self.scrape_ohio
-      ohio = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       ohio_candidates = {
         "Democrat" => Scraper.scrape_candidates(50), #Democrat
         "Republicans" => Scraper.scrape_candidates(51) #Republicans
@@ -121,7 +133,6 @@ class Scraper
     end
 
     def self.scrape_westvirginia
-      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       westvirginia_candidates = {
         "Democrats" => Scraper.scrape_candidates(58), #Democrats
         "Republicans" => Scraper.scrape_candidates(60) #Republicans
@@ -131,4 +142,4 @@ class Scraper
 
 end
 
-Pry.start
+#Pry.start
