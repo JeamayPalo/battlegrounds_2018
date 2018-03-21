@@ -39,7 +39,7 @@ class State
   end
 
   def self.find_or_create_by_name(name)
-    find_by_name(name) ? find_by_name(name) : create(name) 
+    find_by_name(name) ? find_by_name(name) : create(name)
   end
 
 #Instance Methods
@@ -66,7 +66,7 @@ class State
         @candidates << Scraper.scrape_ohio
       elsif @name == 'westvirginia'
         @candidates << Scraper.scrape_westvirginia
-      else nil
+      else "#{@name.capitalize} is not a battleground state for the Midterm Elections 2018."
     end
   end
 
