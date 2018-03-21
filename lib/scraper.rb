@@ -22,6 +22,12 @@ class Scraper
     end
   end
 
+  #def self.scrape_candidates(index)
+    #doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+    #candidates_array = [doc.css("#mw-content-text").css("ul")[index].text]
+    #candidates_array
+  #end
+
   def self.scrape_arizona
       arizona = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       arizona_candidates = {
