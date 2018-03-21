@@ -62,7 +62,7 @@ class Scraper
     end
 
     def self.scrape_indiana
-      indiana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       indiana_candidates = {
         "Democrat - Incumbent" => Scraper.scrape_candidates(15), #Democrats
         "Republicans" => Scraper.scrape_candidates(17), #Republicans
@@ -72,7 +72,7 @@ class Scraper
     end
 
     def self.scrape_missouri
-      missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       missouri_candidates = {
         "Democrats" => Scraper.scrape_candidates(31), #Democrats
         "Republicans" => Scraper.scrape_candidates(32), #Republicans
@@ -83,33 +83,23 @@ class Scraper
     end
 
     def self.scrape_montana
-      montana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       montana_candidates = {
-        "Democrats" => [montana.css("#mw-content-text").css("ul")[36].text],  #Democrats
-        "Republicans" => [montana.css("#mw-content-text").css("ul")[37].text],  #Republicans
-        "Green Party" => [montana.css("#mw-content-text").css("ul")[39].text],  #Green Party
-        "Libertarian" => [montana.css("#mw-content-text").css("ul")[40].text]  #Libertarian
+        "Democrats" => Scraper.scrape_candidates(36), #Democrats
+        "Republicans" => Scraper.scrape_candidates(37), #Republicans
+        "Green Party" => Scraper.scrape_candidates(39), #Green Party
+        "Libertarian" => Scraper.scrape_candidates(40) #Libertarian
       }
-      montana_candidates.each do |key, array|
-        puts "#{key}"
-        array.each do |candidate|
-          puts "#{candidate}"
-        end
-      end
+      Scraper.enumerate(montana_candidates)
     end
 
     def self.scrape_nevada
-      nevada = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+      doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
       nevada_candidates = {
-        "Democrats" => [nevada.css("#mw-content-text").css("ul")[43].text], #Democrats
-        "Republicans" => [nevada.css("#mw-content-text").css("ul")[45].text]
+        "Democrats" => Scraper.scrape_candidates(43), #Democrats
+        "Republicans" => Scraper.scrape_candidates(45) #Republicans
       }
-      nevada_candidates.each do |key, array|
-        puts "#{key}"
-        array.each do |candidate|
-          puts "#{candidate}"
-        end
-      end
+      Scraper.enumerate(nevada_candidates)
     end
 
     def self.scrape_northdakota
