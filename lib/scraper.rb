@@ -11,6 +11,7 @@ class Scraper
     battleground_states = [
       doc.css("span#Arizona").text,
       doc.css("span#Florida").text,
+      doc.css("span#Indiana").text,
       doc.css("span#Missouri").text,
       doc.css("span#Montana").text,
       doc.css("span#Nevada").text,
@@ -23,6 +24,10 @@ class Scraper
       State.create(state) #create by name so it doesn't duplicate
     end
   end
+
+  #def self.create(params)
+    #@Incumbent = params[:Incumbent]
+  #end
 
   def self.scrape_arizona
       arizona = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
@@ -57,6 +62,12 @@ class Scraper
         end
       end
     end
+
+    def self.scrape_indiana
+      indiana = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
+    end
+
+
 
     def self.scrape_missouri
       missouri = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
@@ -153,4 +164,4 @@ class Scraper
 
 end
 
-#Pry.start
+Pry.start
