@@ -1,5 +1,5 @@
 require_relative './environment'
-require_relative './states'
+#require_relative './states'
 
 class Scraper
 
@@ -45,25 +45,23 @@ class Scraper
     #Scraper.enumerate(arizona_candidates)
   #end
 
+  def self.create_hash(party = [], candidate_numbers = [])
+    obj = {}
+    if party.size == candidate_numbers.size
+      party.size.times do |i|
+        obj[party[i]] = Scraper.scrape_candidates(candidate_numbers[i])
+      end
+    end
+    obj
+  end
+
   def self.scrape_arizona
-    arizona_candidates = {
-      "Incumbent" => Scraper.scrape_candidates(8), #Incumbent
-      "Democrats" => Scraper.scrape_candidates(5), #Democrats
-      "Republicans" => Scraper.scrape_candidates(6), #Republicans
-      "Independent" => Scraper.scrape_candidates(7), #Independent
-      "Libertarian" => Scraper.scrape_candidates(9) #Libertarian
-    }
+    arizona_candidates = self.create_hash(["Incumbent", "Democrats", "Republicans", "Independent", "Libertarian"], [8, 5, 6, 7, 9])
     Scraper.enumerate(arizona_candidates)
   end
 
-  def self.scrape_florida(party = [], candidates = [])
-    florida_candidates = {
-      "Democrats" => Scraper.scrape_candidates(10), #Democrats
-      "Republicans" => Scraper.scrape_candidates(11), #Republicans
-      "Potential" => Scraper.scrape_candidates(12),  #Potential
-      "Libertarian" => Scraper.scrape_candidates(13),  #Libertarian
-      "Independents" => Scraper.scrape_candidates(14) #Independents
-    }
+  def self.scrape_florida
+    florida_candidates = self.create_hash(["Democrats", "Republicans", "Potential", "Libertarian", "Independents"], [10, 11, 12, 13, 14])
     Scraper.enumerate(florida_candidates)
   end
 
@@ -130,4 +128,4 @@ class Scraper
 
 end
 
-#Pry.start
+Pry.start
