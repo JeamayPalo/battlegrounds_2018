@@ -66,12 +66,12 @@ class Scraper
   end
 
   def self.scrape_indiana
-    indiana_candidates = self.create_hash(["Democrat - Incumbent", "Republicans", "Independents"], [15, 17, 19])
+    indiana_candidates = self.create_hash(["Democrat", "Republicans", "Independents"], [15, 17, 19])
     self.enumerate(indiana_candidates)
   end
 
   def self.scrape_missouri
-    missouri_candidates = self.create_hash(["Democrats", "Republicans", "Independent", "Libertarian"], [31, 32, 34, 35])
+    missouri_candidates = self.create_hash(["Democrats", "Republicans", "Independent", "Libertarian"], [30, 31, 33, 34])
     self.enumerate(missouri_candidates)
   end
 
@@ -102,4 +102,4 @@ class Scraper
 
 end
 
-Pry.start
+#Pry.start

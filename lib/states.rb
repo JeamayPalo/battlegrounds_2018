@@ -44,7 +44,6 @@ class State
   end
 
   def list_candidates
-    #binding.pry
     puts "The #{@name.capitalize} candidates are:"
       if @name == 'arizona'
         @candidates << Scraper.scrape_arizona
@@ -70,6 +69,5 @@ class State
 
 end
 
-State.new("arizona").list_candidates
 
 #Pry.start
