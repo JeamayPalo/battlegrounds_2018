@@ -28,23 +28,6 @@ class Scraper
     candidates_array
   end
 
-  def self.enumerate(state_candidates)
-    state_candidates.each do |key, array|
-      puts "#{key}"
-      array.each do |candidate|
-        puts "#{candidate}"
-      end
-    end
-  end
-
-  #Possible Refactoring:
-  #def self.scrape_arizona(party = [], candidates = [])
-    #party = ["Democrats", "Republicans", "Independent", "Incumbent", "Libertarian"]
-    #candidates = [Scraper.scrape_candidates(5..9).to_a.sort_by {|index| Scraper.scrape_candidates(index)}]
-    #arizona_candidates = Hash[party.zip(candidates)]
-    #Scraper.enumerate(arizona_candidates)
-  #end
-
   def self.create_hash(party = [], candidate_numbers = [])
     obj = {}
     if party.size == candidate_numbers.size
@@ -53,6 +36,15 @@ class Scraper
       end
     end
     obj
+  end
+
+  def self.enumerate(state_candidates)
+    state_candidates.each do |key, array|
+      puts "#{key}"
+      array.each do |candidate|
+        puts "#{candidate}"
+      end
+    end
   end
 
   def self.scrape_arizona
@@ -66,21 +58,12 @@ class Scraper
   end
 
   def self.scrape_indiana
-    indiana_candidates = {
-      "Democrat - Incumbent" => Scraper.scrape_candidates(15), #Democrats
-      "Republicans" => Scraper.scrape_candidates(17), #Republicans
-      "Independents" => Scraper.scrape_candidates(19) #Independents
-    }
+    indiana_candidates = self.create_hash(["Democrat - Incumbent", "Republicans", "Independents"], [15, 17, 19])
     Scraper.enumerate(indiana_candidates)
   end
 
   def self.scrape_missouri
-    missouri_candidates = {
-      "Democrats" => Scraper.scrape_candidates(31), #Democrats
-      "Republicans" => Scraper.scrape_candidates(32), #Republicans
-      "Independent" => Scraper.scrape_candidates(34), #Independent
-      "Libertarian" => Scraper.scrape_candidates(35) #Libertarian
-    }
+    missouri_candidates = self.create_hash(["Democrats", "Republicans", "Independent", "Libertarian"], [31, 32, 34, 35])
     Scraper.enumerate(missouri_candidates)
   end
 
