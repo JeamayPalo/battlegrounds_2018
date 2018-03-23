@@ -38,17 +38,9 @@ class Scraper
     obj
   end
 
-  #def self.scrape_arizona(party = [], candidates = [])
-    #party = ["Democrats", "Republicans", "Independent", "Incumbent", "Libertarian"]
-    #candidates = [Scraper.scrape_candidates(5), Scraper.scrape_candidates(6)]
-    #arizona_candidates = Hash[party.zip(candidates)]
-    #Scraper.enumerate(arizona_candidates)
-    #binding.pry
-  #end
-
   def self.enumerate(state_candidates)
     state_candidates.each do |key, array|
-      puts "#{key}"
+      puts "-----#{key}-----"
       array.each do |candidate|
         puts "#{candidate}"
       end

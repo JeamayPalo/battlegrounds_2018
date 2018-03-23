@@ -20,6 +20,7 @@ class CLI
     while input != 'exit'
      puts "To find out your State's candidates, please enter the State number (1-9):"
      input = gets.strip
+     puts "The candidates are:"
      case input
        when '1'
          Scraper.scrape_arizona
