@@ -38,6 +38,14 @@ class Scraper
     obj
   end
 
+  #def self.scrape_arizona(party = [], candidates = [])
+    #party = ["Democrats", "Republicans", "Independent", "Incumbent", "Libertarian"]
+    #candidates = [Scraper.scrape_candidates(5), Scraper.scrape_candidates(6)]
+    #arizona_candidates = Hash[party.zip(candidates)]
+    #Scraper.enumerate(arizona_candidates)
+    #binding.pry
+  #end
+
   def self.enumerate(state_candidates)
     state_candidates.each do |key, array|
       puts "#{key}"
@@ -49,64 +57,47 @@ class Scraper
 
   def self.scrape_arizona
     arizona_candidates = self.create_hash(["Incumbent", "Democrats", "Republicans", "Independent", "Libertarian"], [8, 5, 6, 7, 9])
-    Scraper.enumerate(arizona_candidates)
+    self.enumerate(arizona_candidates)
   end
 
   def self.scrape_florida
     florida_candidates = self.create_hash(["Democrats", "Republicans", "Potential", "Libertarian", "Independents"], [10, 11, 12, 13, 14])
-    Scraper.enumerate(florida_candidates)
+    self.enumerate(florida_candidates)
   end
 
   def self.scrape_indiana
     indiana_candidates = self.create_hash(["Democrat - Incumbent", "Republicans", "Independents"], [15, 17, 19])
-    Scraper.enumerate(indiana_candidates)
+    self.enumerate(indiana_candidates)
   end
 
   def self.scrape_missouri
     missouri_candidates = self.create_hash(["Democrats", "Republicans", "Independent", "Libertarian"], [31, 32, 34, 35])
-    Scraper.enumerate(missouri_candidates)
+    self.enumerate(missouri_candidates)
   end
 
   def self.scrape_montana
-    montana_candidates = {
-      "Democrats" => Scraper.scrape_candidates(36), #Democrats
-      "Republicans" => Scraper.scrape_candidates(37), #Republicans
-      "Green Party" => Scraper.scrape_candidates(39), #Green Party
-      "Libertarian" => Scraper.scrape_candidates(40) #Libertarian
-    }
-    Scraper.enumerate(montana_candidates)
+    montana_candidates = self.create_hash(["Democrats", "Republicans", "Green Party", "Libertarian"], [35, 37, 39, 41])
+    self.enumerate(montana_candidates)
   end
 
   def self.scrape_nevada
-    nevada_candidates = {
-      "Democrats" => Scraper.scrape_candidates(43), #Democrats
-      "Republicans" => Scraper.scrape_candidates(45) #Republicans
-    }
-    Scraper.enumerate(nevada_candidates)
+    nevada_candidates = self.create_hash(["Democrats", "Republicans", "Independent American", "Libertarian", "Nonpartisan"], [42, 44, 46, 47, 48])
+    self.enumerate(nevada_candidates)
   end
 
   def self.scrape_northdakota
-    northdakota_candidates = {
-      "Democrats" => Scraper.scrape_candidates(47), #Democrats
-      "Republican" => Scraper.scrape_candidates(48) #Republican
-    }
-    Scraper.enumerate(northdakota_candidates)
+    northdakota_candidates = self.create_hash(["Democrats", "Republicans"], [49, 50])
+    self.enumerate(northdakota_candidates)
   end
 
   def self.scrape_ohio
-    ohio_candidates = {
-      "Democrat" => Scraper.scrape_candidates(50), #Democrat
-      "Republicans" => Scraper.scrape_candidates(51) #Republicans
-    }
-    Scraper.enumerate(ohio_candidates)
+    ohio_candidates = self.create_hash(["Democrat", "Republicans"], [52, 53])
+    self.enumerate(ohio_candidates)
   end
 
   def self.scrape_westvirginia
-    westvirginia_candidates = {
-      "Democrats" => Scraper.scrape_candidates(53), #Democrats
-      "Republicans" => Scraper.scrape_candidates(55) #Republicans
-    }
-    Scraper.enumerate(westvirginia_candidates)
+    westvirginia_candidates = self.create_hash(["Democrat", "Republicans"], [56, 58])
+    self.enumerate(westvirginia_candidates)
   end
 
 end
