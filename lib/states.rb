@@ -50,19 +50,19 @@ class State
       elsif @name == 'florida'
         @candidates << Scraper.scrape("Florida")
       elsif @name == 'indiana'
-        @candidates << Scraper.scrape_indiana
+        @candidates << Scraper.scrape("Indiana")
       elsif @name == 'missouri'
-        @candidates << Scraper.scrape_missouri
+        @candidates << Scraper.scrape("Missouri")
       elsif @name == 'montana'
-        @candidates << Scraper.scrape_montana
+        @candidates << Scraper.scrape("Montana")
       elsif @name == 'nevada'
-        @candidates << Scraper.scrape_nevada
+        @candidates << Scraper.scrape("Nevada")
       elsif @name == 'northdakota'
-        @candidates << Scraper.scrape_northdakota
+        @candidates << Scraper.scrape("North Dakota")
       elsif @name == 'ohio'
-        @candidates << Scraper.scrape_ohio
+        @candidates << Scraper.scrape("Ohio")
       elsif @name == 'westvirginia'
-        @candidates << Scraper.scrape_westvirginia
+        @candidates << Scraper.scrape("West Virginia")
       else "#{@name.capitalize} is not a battleground state for the Midterm Elections 2018."
     end
   end
