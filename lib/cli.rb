@@ -29,17 +29,17 @@ class CLI
        when '3'
          Scraper.scrape("Indiana")
        when '4'
-         Scraper.scrape_missouri
+         Scraper.scrape("Missouri")
        when '5'
-         Scraper.scrape_montana
+         Scraper.scrape("Montana")
        when '6'
-         Scraper.scrape_nevada
+         Scraper.scrape("Nevada")
        when '7'
-         Scraper.scrape_northdakota
+         Scraper.scrape("North Dakota")
        when '8'
-         Scraper.scrape_ohio
+         Scraper.scrape("Ohio")
        when '9'
-         Scraper.scrape_westvirginia
+         Scraper.scrape("West Virginia")
        else
          puts "Invalid Input"
       end

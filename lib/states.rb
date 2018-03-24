@@ -46,9 +46,9 @@ class State
   def list_candidates
     puts "The #{@name.capitalize} candidates are:"
       if @name == 'arizona'
-        @candidates << Scraper.scrape_arizona
+        @candidates << Scraper.scrape("Arizona")
       elsif @name == 'florida'
-        @candidates << Scraper.scrape_florida
+        @candidates << Scraper.scrape("Florida")
       elsif @name == 'indiana'
         @candidates << Scraper.scrape_indiana
       elsif @name == 'missouri'
