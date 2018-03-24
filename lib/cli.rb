@@ -23,11 +23,11 @@ class CLI
      puts "The candidates are:"
      case input
        when '1'
-         Scraper.scrape_arizona
+         Scraper.scrape("Arizona")
        when '2'
-         Scraper.scrape_florida
+         Scraper.scrape("Florida")
        when '3'
-         Scraper.scrape_indiana
+         Scraper.scrape("Indiana")
        when '4'
          Scraper.scrape_missouri
        when '5'
