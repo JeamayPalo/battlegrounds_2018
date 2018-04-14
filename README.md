@@ -1,8 +1,6 @@
 # Battlegrounds2018
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/battlegrounds_2018`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to Battlegrounds 2018! This gem is designed to give you the list of the 9 battleground states for the midterm elections this coming November 2018. From each state you choose, you can then determine the candidates who will be running. You can do this by running ruby bin/battlegrounds. You may also create state objects, which will initialize with a name and its corresponding candidates. 
 
 ## Installation
 
