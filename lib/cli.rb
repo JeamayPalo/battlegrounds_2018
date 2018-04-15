@@ -28,6 +28,10 @@ class CLI
          Scraper.scrape("Florida")
        when 'Indiana'
          Scraper.scrape("Indiana")
+      #when 'Maine'
+        #Scraper.scrape("Maine")
+      #when 'Minnesota'
+        #Scraper.scrape("Minnesota")
        when 'Missouri'
          Scraper.scrape("Missouri")
        when 'Montana'

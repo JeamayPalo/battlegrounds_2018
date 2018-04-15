@@ -6,6 +6,7 @@ class Scraper
   def self.scrape_states
     doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
     battleground_states = [doc.css("table.bptable td").text]
+    #battleground_states.first.split.each_slice(3).each.with_index(1) do |state, index|
     battleground_states.each do |state|
       puts "#{state}"
       #State.create(state)
@@ -41,6 +42,8 @@ class Scraper
       "Arizona" => ["Incumbent", "Democrats", "Republicans", "Independent", "Libertarian"],
       "Florida" => ["Democrats", "Republicans", "Potential", "Libertarian", "Independents"],
       "Indiana" => ["Democrat", "Republicans", "Independents"],
+      #"Maine" => []
+      #"Minnesota" => []
       "Missouri" => ["Democrats", "Republicans", "Independent", "Libertarian"],
       "Montana" => ["Democrats", "Republicans", "Green Party", "Libertarian"],
       "Nevada" => ["Democrats", "Republicans", "Independent American", "Libertarian", "Nonpartisan"],
@@ -52,6 +55,8 @@ class Scraper
       "Arizona" => [8, 5, 6, 7, 9],
       "Florida" => [10, 11, 12, 13, 14],
       "Indiana" => [15, 17, 19],
+      #"Maine" => []
+      #"Minnesota" => []
       "Missouri" => [30, 31, 33, 34],
       "Montana" => [35, 37, 39, 41],
       "Nevada" => [42, 44, 46, 47, 48],
