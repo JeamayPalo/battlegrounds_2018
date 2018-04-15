@@ -5,9 +5,9 @@ class Scraper
 
   def self.scrape_states
     doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-    battleground_states = [doc.css("table.bptable tr").text]
-    battleground_states.each.with_index(1) do |state, index|
-      puts "#{index}.) #{state}"
+    battleground_states = [doc.css("table.bptable td").text]
+    battleground_states.each do |state|
+      puts "#{state}"
       #State.create(state)
     end
   end

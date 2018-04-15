@@ -11,34 +11,34 @@ class CLI
     end
 
     def self.list_states
-       puts "Here are the Battleground States for Midterms 2018"
+       puts "Here are the Battleground States for Midterms 2018 and their incumbents."
        Scraper.scrape_states
     end
 
   def self.list_state_candidates
    input = nil
     while input != 'exit'
-     puts "To find out your State's candidates, please enter the State number (1-9):"
+     puts "To find out your State's candidates, please enter the name of the State:"
      input = gets.strip
      puts "The candidates are:"
      case input
-       when '1'
+     when 'Arizona'
          Scraper.scrape("Arizona")
-       when '2'
+       when 'Florida'
          Scraper.scrape("Florida")
-       when '3'
+       when 'Indiana'
          Scraper.scrape("Indiana")
-       when '4'
+       when 'Missouri'
          Scraper.scrape("Missouri")
-       when '5'
+       when 'Montana'
          Scraper.scrape("Montana")
-       when '6'
+       when 'Nevada'
          Scraper.scrape("Nevada")
-       when '7'
+       when 'North Dakota'
          Scraper.scrape("North Dakota")
-       when '8'
+       when 'Ohio'
          Scraper.scrape("Ohio")
-       when '9'
+       when 'West Virginia'
          Scraper.scrape("West Virginia")
        else
          puts "Invalid Input"
