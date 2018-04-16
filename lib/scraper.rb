@@ -1,28 +1,15 @@
 require_relative './environment'
 
-class Scraper
-
-#STATES = [ "Alaska", "Alabama", "Arkansas", "Arizona", "California", "Colorado", "Connecticut", "Delaware", "Florida",
-#"Georgia", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Lousiana", "Massachusetts", "Maryland",
-#"Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire",
-#"New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Caorlina", "South Dakota",
-#"Tennessee", "Texas", "Utah", "Virginia", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"]
-
-#OPTION 1 (Numbered)
-  #def self.scrape_states
-    #doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-    #battleground_states = [doc.css("table.bptable td").text].first.split
-    #(STATES & battleground_states).each.with_index(1) do |state, index|
-      #puts "#{index}.) #{state}"
-    #end
-    #State.create(state)
-  #end
+class Battlegrounds2018::Scraper
 
   def self.scrape_states
     doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-    battleground_states = [doc.css("table.bptable td").text]
-    battleground_states.each do |state|
-        puts "#{state}"
+    battleground_states = doc.css("table.bptable td").text.split("\n").map do |state|
+      state.split("   ").first
+    end
+    battleground_states.each.with_index(1) do |state, index|
+      puts "#{index}.) #{state}"
+      Battlegrounds2018::State.create(state)
     end
   end
 
@@ -35,7 +22,7 @@ class Scraper
     obj = {}
     if party.size == candidate_numbers.size
       party.size.times do |i|
-        obj[party[i]] = Scraper.scrape_candidates(candidate_numbers[i])
+        obj[party[i]] = Battlegrounds2018::Scraper.scrape_candidates(candidate_numbers[i])
       end
     end
     obj

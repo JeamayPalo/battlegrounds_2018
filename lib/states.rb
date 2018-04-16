@@ -1,6 +1,6 @@
 require_relative './environment'
 
-class State
+class Battlegrounds2018::State
   attr_accessor :name, :candidates
 
   def initialize(name)
@@ -46,23 +46,23 @@ class State
   def list_candidates
     puts "The #{@name.capitalize} candidates are:"
       if @name == 'arizona'
-        @candidates << Scraper.scrape("Arizona")
+        @candidates << Battlegrounds2018::Scraper.scrape("Arizona")
       elsif @name == 'florida'
-        @candidates << Scraper.scrape("Florida")
+        @candidates << Battlegrounds2018::Scraper.scrape("Florida")
       elsif @name == 'indiana'
-        @candidates << Scraper.scrape("Indiana")
+        @candidates << Battlegrounds2018::Scraper.scrape("Indiana")
       elsif @name == 'missouri'
-        @candidates << Scraper.scrape("Missouri")
+        @candidates << Battlegrounds2018::Scraper.scrape("Missouri")
       elsif @name == 'montana'
-        @candidates << Scraper.scrape("Montana")
+        @candidates << Battlegrounds2018::Scraper.scrape("Montana")
       elsif @name == 'nevada'
-        @candidates << Scraper.scrape("Nevada")
+        @candidates << Battlegrounds2018::Scraper.scrape("Nevada")
       elsif @name == 'northdakota'
-        @candidates << Scraper.scrape("North Dakota")
+        @candidates << Battlegrounds2018::Scraper.scrape("North Dakota")
       elsif @name == 'ohio'
-        @candidates << Scraper.scrape("Ohio")
+        @candidates << Battlegrounds2018::Scraper.scrape("Ohio")
       elsif @name == 'westvirginia'
-        @candidates << Scraper.scrape("West Virginia")
+        @candidates << Battlegrounds2018::Scraper.scrape("West Virginia")
       else "#{@name.capitalize} is not a battleground state for the Midterm Elections 2018."
     end
   end

@@ -1,7 +1,7 @@
 require_relative './environment'
 
 #CLI controller
-class CLI
+class Battlegrounds2018::CLI
 
     def self.call
       puts "Hello"
@@ -12,38 +12,38 @@ class CLI
 
     def self.list_states
        puts "Here are the Battleground States for Midterms 2018 and their incumbents."
-       Scraper.scrape_states
+       Battlegrounds2018::Scraper.scrape_states
     end
 
   def self.list_state_candidates
    input = nil
     while input != 'exit'
-     puts "To find out your State's candidates, please enter the name of the State:"
+     puts "To find out your State's candidates, please enter the State number:"
      input = gets.strip
      puts "The candidates are:"
      case input
-     when 'Arizona'
-         Scraper.scrape("Arizona")
-       when 'Florida'
-         Scraper.scrape("Florida")
-       when 'Indiana'
-         Scraper.scrape("Indiana")
-       when 'Maine'
-         Scraper.scrape("Maine")
-       when 'Minnesota'
-         Scraper.scrape("Minnesota")
-       when 'Missouri'
-         Scraper.scrape("Missouri")
-       when 'Montana'
-         Scraper.scrape("Montana")
-       when 'Nevada'
-         Scraper.scrape("Nevada")
-       when 'North Dakota'
-         Scraper.scrape("North Dakota")
-       when 'Ohio'
-         Scraper.scrape("Ohio")
-       when 'West Virginia'
-         Scraper.scrape("West Virginia")
+      when '1'
+         #Battlegrounds2018::Scraper.scrape(Battlegrounds2018::State.all[input - 1].name)
+       when '2'
+         Battlegrounds2018::Scraper.scrape("Florida")
+       when '3'
+         Battlegrounds2018::Scraper.scrape("Indiana")
+       when '4'
+         Battlegrounds2018::Scraper.scrape("Maine")
+       when '5'
+         Battlegrounds2018::Scraper.scrape("Minnesota")
+       when '6'
+         Battlegrounds2018::Scraper.scrape("Missouri")
+       when '7'
+         Battlegrounds2018::Scraper.scrape("Montana")
+       when '8'
+         Battlegrounds2018::Scraper.scrape("Nevada")
+       when '9'
+         Battlegrounds2018::Scraper.scrape("North Dakota")
+       when '10'
+         Battlegrounds2018::Scraper.scrape("Ohio")
+       when '11'
+         Battlegrounds2018::Scraper.scrape("West Virginia")
        else
          puts "Invalid Input"
       end

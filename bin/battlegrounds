@@ -2,4 +2,4 @@
 
 require_relative '../lib/environment.rb'
 
-CLI.call
+Battlegrounds2018::CLI.call
