@@ -82,4 +82,4 @@ class Scraper
 
 end
 
-Pry.start
+#Pry.start
