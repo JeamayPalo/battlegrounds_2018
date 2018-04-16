@@ -24,8 +24,6 @@ class Scraper
     battleground_states.each do |state|
         puts "#{state}"
     end
-    #State.create(state)
-    binding.pry
   end
 
   def self.scrape_candidates(index)
@@ -57,8 +55,8 @@ class Scraper
       "Arizona" => ["Incumbent", "Democrats", "Republicans", "Independent", "Libertarian"],
       "Florida" => ["Democrats", "Republicans", "Potential", "Libertarian", "Independents"],
       "Indiana" => ["Democrat", "Republicans", "Independents"],
-      #"Maine" => []
-      #"Minnesota" => []
+      "Maine" => ["Democrats", "Republicans", "Libertarians", "Independents"],
+      "Minnesota" => ["Democrats", "Republicans"],
       "Missouri" => ["Democrats", "Republicans", "Independent", "Libertarian"],
       "Montana" => ["Democrats", "Republicans", "Green Party", "Libertarian"],
       "Nevada" => ["Democrats", "Republicans", "Independent American", "Libertarian", "Nonpartisan"],
@@ -70,8 +68,8 @@ class Scraper
       "Arizona" => [8, 5, 6, 7, 9],
       "Florida" => [10, 11, 12, 13, 14],
       "Indiana" => [15, 17, 19],
-      #"Maine" => []
-      #"Minnesota" => []
+      "Maine" => [20, 21, 22, 23],
+      "Minnesota" => [24, 26],
       "Missouri" => [30, 31, 33, 34],
       "Montana" => [35, 37, 39, 41],
       "Nevada" => [42, 44, 46, 47, 48],
@@ -84,5 +82,4 @@ class Scraper
 
 end
 
-Scraper.scrape_states
-#Pry.start
+Pry.start
