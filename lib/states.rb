@@ -14,11 +14,12 @@ class Battlegrounds2018::State
 
   def self.battleground
     puts "The battleground states for the Midterm Elections of 2018 are:"
-    Scraper.scrape_states
+    Battlegrounds2018::Scraper.scrape_states
   end
 
   def self.all
     @@all
+    binding.pry
   end
 
   def self.create(name)

@@ -4,11 +4,11 @@ class Battlegrounds2018::Scraper
 
   def self.scrape_states
     doc = Nokogiri::HTML(open("https://ballotpedia.org/U.S._Senate_battlegrounds,_2018"))
-    battleground_states = doc.css("table.bptable td").text.split("\n").map do |state|
-      state.split("   ").first
+      battleground_states = doc.css("table.bptable td").text.split("\n").map do |state|
+        state.split("   ").first
     end
-    battleground_states.each.with_index(1) do |state, index|
-      puts "#{index}.) #{state}"
+      battleground_states.each.with_index(1) do |state, index|
+        puts "#{index}.) #{state}"
       Battlegrounds2018::State.create(state)
     end
   end
