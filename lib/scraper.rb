@@ -66,7 +66,7 @@ class Battlegrounds2018::Scraper
       "Ohio" => [57, 58, 61],
       "Tennessee" => [62, 64, 68],
       "Texas" => [70, 72, 74, 75],
-      "West Virginia" => [56, 58]
+      "West Virginia" => [76, 78]
     }
     self.enumerate(self.create_hash(parties[state], candidates[state]))
     #binding.pry
