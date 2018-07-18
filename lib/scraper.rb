@@ -39,7 +39,7 @@ class Battlegrounds2018::Scraper
 
   def self.scrape(state)
     parties = {
-      "Arizona" => ["Incumbent", "Democrats", "Republicans", "Independent", "Libertarian"],
+      "Arizona" => ["Democrats", "Republicans", "Independent", "Not running", "Green Party", "Libertarian"],
       "Florida" => ["Democrats", "Republicans", "Potential", "Libertarian", "Independents"],
       "Indiana" => ["Democrat", "Republicans", "Independents"],
       "Maine" => ["Democrats", "Republicans", "Libertarians", "Independents"],
@@ -52,7 +52,7 @@ class Battlegrounds2018::Scraper
       "West Virginia" => ["Democrat", "Republicans"]
     }
     candidates = {
-      "Arizona" => [8, 5, 6, 7, 9],
+      "Arizona" => [5, 6, 7, 9, 10, 11],
       "Florida" => [10, 11, 12, 13, 14],
       "Indiana" => [15, 17, 19],
       "Maine" => [20, 21, 22, 23],
@@ -65,8 +65,9 @@ class Battlegrounds2018::Scraper
       "West Virginia" => [56, 58]
     }
     self.enumerate(self.create_hash(parties[state], candidates[state]))
+    #binding.pry
   end
 
 end
 
-#Pry.start
+Pry.start
