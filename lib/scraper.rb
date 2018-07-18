@@ -48,7 +48,7 @@ class Battlegrounds2018::Scraper
       "Montana" => ["Democrats", "Republicans", "Green Party", "Libertarian"],
       "Nevada" => ["Democrats", "Republicans", "Independent American", "Libertarian", "Independent"],
       "North Dakota" => ["Democrats", "Republicans"],
-      "Ohio" => ["Democrat", "Republicans"],
+      "Ohio" => ["Democrat", "Republicans", "Green Party"],
       #"Tennessee" => [""],
       #"Texas" => [""],
       "West Virginia" => ["Democrat", "Republicans"]
@@ -62,8 +62,8 @@ class Battlegrounds2018::Scraper
       "Missouri" => [33, 34, 36, 37, 38],
       "Montana" => [39, 41, 43, 45],
       "Nevada" => [46, 48, 50, 51, 52],
-      "North Dakota" => [49, 50],
-      "Ohio" => [52, 53],
+      "North Dakota" => [53, 55],
+      "Ohio" => [57, 58, 61],
       #"Tennessee" => [],
       #"Texas" => [],
       "West Virginia" => [56, 58]
