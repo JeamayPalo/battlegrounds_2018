@@ -40,28 +40,32 @@ class Battlegrounds2018::Scraper
   def self.scrape(state)
     parties = {
       "Arizona" => ["Democrats", "Republicans", "Independent", "Not running", "Green Party", "Libertarian"],
-      "Florida" => ["Democrats", "Republicans", "Potential", "Libertarian", "Independents"],
-      "Indiana" => ["Democrat", "Republicans", "Independents"],
-      "Maine" => ["Democrats", "Republicans", "Libertarians", "Independents"],
+      "Florida" => ["Democrats", "Republicans", "Republican Write-in candidates", "Libertarians", "Independents"],
+      "Indiana" => ["Democrat", "Republicans", "Libertarians", "Independents"],
       "Minnesota" => ["Democrats", "Republicans"],
+      "Mississippi" => ["Democrats", "Republicans", "Green Party", "Libertarians", "Independents"],
       "Missouri" => ["Democrats", "Republicans", "Independent", "Libertarian"],
       "Montana" => ["Democrats", "Republicans", "Green Party", "Libertarian"],
       "Nevada" => ["Democrats", "Republicans", "Independent American", "Libertarian", "Nonpartisan"],
       "North Dakota" => ["Democrats", "Republicans"],
       "Ohio" => ["Democrat", "Republicans"],
+      #"Tennessee" => [""],
+      #"Texas" => [""],
       "West Virginia" => ["Democrat", "Republicans"]
     }
     candidates = {
       "Arizona" => [5, 6, 7, 9, 10, 11],
-      "Florida" => [10, 11, 12, 13, 14],
-      "Indiana" => [15, 17, 19],
-      "Maine" => [20, 21, 22, 23],
-      "Minnesota" => [24, 26],
+      "Florida" => [12, 14, 15, 17, 18],
+      "Indiana" => [20, 22, 24, 25],
+      "Minnesota" => [27, 29],
+      "Mississippi" => [33, 34, 36, 37, 38],
       "Missouri" => [30, 31, 33, 34],
       "Montana" => [35, 37, 39, 41],
       "Nevada" => [42, 44, 46, 47, 48],
       "North Dakota" => [49, 50],
       "Ohio" => [52, 53],
+      #"Tennessee" => [],
+      #"Texas" => [],
       "West Virginia" => [56, 58]
     }
     self.enumerate(self.create_hash(parties[state], candidates[state]))
